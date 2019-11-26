@@ -14,7 +14,9 @@
 ' You should have received a copy of the GNU General Public License 
 ' along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+Imports instat
 Imports instat.Translations
+Imports RDotNet
 Public Class dlgClimaticStationMaps
     Private bFirstLoad As Boolean = True
     Private clsCoordPolarFunction As New RFunction
@@ -36,6 +38,8 @@ Public Class dlgClimaticStationMaps
     Private bResetSubdialog As Boolean = True
     Private bResetSFLayerSubdialog As Boolean = True
     Private clsLabelRepelAesFunction As New RFunction
+    Private clsCoordPolarFunction As RFunction
+    Private clsCoordPolarStartOperator As ROperator
 
     Private Sub dlgClimaticMaps_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         If bFirstLoad Then
@@ -63,10 +67,15 @@ Public Class dlgClimaticStationMaps
         ucrSelectorStation.SetParameter(New RParameter("data", 0))
         ucrSelectorStation.SetParameterIsrfunction()
 
+
+        ucrReceiverGeometry.Selector = ucrSelectorOutline
+
         ucrReceiverFill.SetParameter(New RParameter("fill", 0))
         ucrReceiverFill.Selector = ucrSelectorOutline
         ucrReceiverFill.SetParameterIsString()
         ucrReceiverFill.bWithQuotes = False
+
+
 
         ucrReceiverLongitude.SetParameter(New RParameter("x", 0))
         ucrReceiverLongitude.Selector = ucrSelectorStation
@@ -109,6 +118,9 @@ Public Class dlgClimaticStationMaps
         ucrSaveMap.SetAssignToIfUncheckedValue("last_map")
         ucrSaveMap.SetDataFrameSelector(ucrSelectorOutline.ucrAvailableDataFrames)
 
+        ucrChkAddPoints.SetText("Add Points")
+        ChangeSize()
+
     End Sub
 
     Private Sub SetDefaults()
@@ -127,10 +139,17 @@ Public Class dlgClimaticStationMaps
         clsYlimFunction = New RFunction
         clsFacetOp = New ROperator
 
+        clsCoordPolarFunction = New RFunction
+        clsCoordPolarStartOperator = New ROperator
+
+        clsCoordPolarFunction = GgplotDefaults.clsCoordPolarFunction.Clone()
+        clsCoordPolarStartOperator = GgplotDefaults.clsCoordPolarStartOperator.Clone()
+
         ucrSelectorOutline.Reset()
         ucrSelectorStation.Reset()
         ucrReceiverLongitude.SetMeAsReceiver()
         ucrReceiverFill.SetMeAsReceiver()
+        ucrReceiverGeometry.SetMeAsReceiver()
         ucrSaveMap.Reset()
         bResetSubdialog = True
         bResetSFLayerSubdialog = True
@@ -147,7 +166,7 @@ Public Class dlgClimaticStationMaps
 
         clsGeomPointFunction.SetPackageName("ggplot2")
         clsGeomPointFunction.SetRCommand("geom_point")
-        clsGeomPointFunction.AddParameter("mapping", clsRFunctionParameter:=clsGeomPointAesFunction,iPosition:=1)
+        clsGeomPointFunction.AddParameter("mapping", clsRFunctionParameter:=clsGeomPointAesFunction, iPosition:=1)
 
         clsGeomPointAesFunction.SetPackageName("ggplot2")
         clsGeomPointAesFunction.SetRCommand("aes")
@@ -169,7 +188,7 @@ Public Class dlgClimaticStationMaps
 
         clsLabelRepelAesFunction.SetPackageName("ggplot2")
         clsLabelRepelAesFunction.SetRCommand("aes")
-        clsLabelRepelFunction.AddParameter("mapping", clsRFunctionParameter:=clsLabelRepelAesFunction,iPosition:=1)
+        clsLabelRepelFunction.AddParameter("mapping", clsRFunctionParameter:=clsLabelRepelAesFunction, iPosition:=1)
 
 
         clsGGplotOperator.SetOperation("+")
@@ -194,11 +213,13 @@ Public Class dlgClimaticStationMaps
 
         clsGGplotOperator.SetAssignTo("last_map", strTempDataframe:=ucrSelectorOutline.ucrAvailableDataFrames.cboAvailableDataFrames.Text, strTempGraph:="last_map")
         ucrBase.clsRsyntax.SetBaseROperator(clsGGplotOperator)
+        AutoFillGeometry()
     End Sub
 
     Private Sub cmdPlotOptions_Click(sender As Object, e As EventArgs) Handles cmdPlotOptions.Click
         sdgPlots.SetRCode(clsGGplotOperator,
     clsNewCoordPolarFunction:=clsCoordPolarFunction, clsNewCoordPolarStartOperator:=clsCoordPolarStartOperator, clsNewThemeFunction:=clsThemeFunction, dctNewThemeFunctions:=dctThemeFunctions, clsNewGlobalAesFunction:=clsSfAesFunction, clsNewXScalecontinuousFunction:=clsXScaleContinuousFunction, clsNewYScalecontinuousFunction:=clsYScaleContinuousFunction, clsNewXLabsTitleFunction:=clsXlabsFunction, clsNewYLabTitleFunction:=clsYlabFunction, clsNewLabsFunction:=clsLabsFunction, clsNewFacetFunction:=clsRFacetFunction, ucrNewBaseSelector:=ucrSelectorStation, bReset:=bResetSubdialog)
+
         sdgPlots.ShowDialog()
         bResetSubdialog = False
     End Sub
@@ -232,10 +253,15 @@ Public Class dlgClimaticStationMaps
         Next
     End Sub
 
+
     Private Sub cmdMapOptions_Click(sender As Object, e As EventArgs) Handles cmdMapOptions.Click
         sdgMapOption.SetRCode(clsBaseOperator:=clsGGplotOperator, clsXlim:=clsXlimFunction, clsylim:=clsYlimFunction, bReset:=bResetSubdialog)
         sdgMapOption.ShowDialog()
         bResetSubdialog = False
+    End Sub
+
+    Private Sub ucrChkAddPoints_Load(sender As Object, e As EventArgs)
+
     End Sub
 
     Private Sub TestOkEnabled()
@@ -288,11 +314,53 @@ Public Class dlgClimaticStationMaps
         End If
     End Sub
 
+    Private Sub ChangeSize()
+        If ucrChkAddPoints.Checked Then
+            grpPoints.Visible = True
+            Me.Size = New Size(772, 495)
+        Else
+            grpPoints.Visible = False
+            Me.Size = New Size(443, 495)
+        End If
+    End Sub
+
     Private Sub ucrReceiverStation_ControlValueChanged(ucrChangedControl As ucrCore) Handles ucrReceiverStation.ControlValueChanged
         If Not ucrReceiverStation.IsEmpty Then
             clsGGplotOperator.AddParameter("geom_label_repel", clsRFunctionParameter:=clsLabelRepelFunction, bIncludeArgumentName:=False, iPosition:=2)
         Else
             clsGGplotOperator.RemoveParameterByName("geom_label_repel")
         End If
+    End Sub
+
+    Private Sub ucrChkAddPoints_ControlValueChanged(ucrChangedControl As ucrCore) Handles ucrChkAddPoints.ControlValueChanged
+        ChangeSize()
+    End Sub
+
+    Private Sub AutoFillGeometry()
+        Dim clsSetGeometry As New RFunction
+        Dim clsGetDataFrame As RFunction = New RFunction
+        Dim clsParam As RParameter = New RParameter
+        Dim GeometryOutput As SymbolicExpression
+        Dim strScript As String = ""
+
+        clsGetDataFrame.SetRCommand(frmMain.clsRLink.strInstatDataObject & "$get_data_frame")
+        clsParam.SetArgumentName("data_name")
+        clsParam.SetArgumentValue(Chr(34) & ucrSelectorOutline.ucrAvailableDataFrames.cboAvailableDataFrames.Text & Chr(34))
+        clsGetDataFrame.AddParameter(clsParam)
+        clsGetDataFrame.SetAssignTo(ucrSelectorOutline.ucrAvailableDataFrames.cboAvailableDataFrames.Text)
+        clsGetDataFrame.ToScript(strScript)
+        frmMain.clsRLink.RunInternalScript(strScript)
+
+        clsSetGeometry.SetRCommand(frmMain.clsRLink.strInstatDataObject & "$get_geometry")
+        clsSetGeometry.AddParameter("data", ucrSelectorOutline.ucrAvailableDataFrames.cboAvailableDataFrames.Text)
+        GeometryOutput = frmMain.clsRLink.RunInternalScriptGetValue(clsSetGeometry.ToScript(), bSilent:=True)
+
+        If GeometryOutput IsNot Nothing AndAlso Not GeometryOutput.Type = Internals.SymbolicExpressionType.Null Then
+            ucrReceiverGeometry.Add(GeometryOutput.AsCharacter(0), ucrSelectorOutline.ucrAvailableDataFrames.cboAvailableDataFrames.Text)
+        End If
+    End Sub
+
+    Private Sub ucrSelectorOutline_ControlValueChanged(ucrChangedControl As ucrCore) Handles ucrSelectorOutline.ControlValueChanged
+        AutoFillGeometry()
     End Sub
 End Class
