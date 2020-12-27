@@ -24,10 +24,10 @@ Partial Class dlgOtherRosePlots
     Private Sub InitializeComponent()
         Me.ucrBase = New instat.ucrButtons()
         Me.ucrSelectorOtherRosePlots = New instat.ucrSelectorByDataFrameAddRemove()
-        Me.UcrReceiverSingle2 = New instat.ucrReceiverSingle()
-        Me.UcrReceiverSingle5 = New instat.ucrReceiverSingle()
+        Me.ucrReceiverPollutant = New instat.ucrReceiverSingle()
+        Me.ucrReceiverWindDirection = New instat.ucrReceiverSingle()
         Me.UcrReceiverDate = New instat.ucrReceiverSingle()
-        Me.UcrReceiverSingle7 = New instat.ucrReceiverSingle()
+        Me.ucrReceiverWindSpeed = New instat.ucrReceiverSingle()
         Me.lblWindSpeed = New System.Windows.Forms.Label()
         Me.lblDate = New System.Windows.Forms.Label()
         Me.lblWindDirection = New System.Windows.Forms.Label()
@@ -64,29 +64,29 @@ Partial Class dlgOtherRosePlots
         Me.ucrSelectorOtherRosePlots.Size = New System.Drawing.Size(210, 180)
         Me.ucrSelectorOtherRosePlots.TabIndex = 1
         '
-        'UcrReceiverSingle2
+        'ucrReceiverPollutant
         '
-        Me.UcrReceiverSingle2.frmParent = Me
-        Me.UcrReceiverSingle2.Location = New System.Drawing.Point(282, 228)
-        Me.UcrReceiverSingle2.Margin = New System.Windows.Forms.Padding(0)
-        Me.UcrReceiverSingle2.Name = "UcrReceiverSingle2"
-        Me.UcrReceiverSingle2.Selector = Nothing
-        Me.UcrReceiverSingle2.Size = New System.Drawing.Size(120, 20)
-        Me.UcrReceiverSingle2.strNcFilePath = ""
-        Me.UcrReceiverSingle2.TabIndex = 3
-        Me.UcrReceiverSingle2.ucrSelector = Nothing
+        Me.ucrReceiverPollutant.frmParent = Me
+        Me.ucrReceiverPollutant.Location = New System.Drawing.Point(282, 228)
+        Me.ucrReceiverPollutant.Margin = New System.Windows.Forms.Padding(0)
+        Me.ucrReceiverPollutant.Name = "ucrReceiverPollutant"
+        Me.ucrReceiverPollutant.Selector = Nothing
+        Me.ucrReceiverPollutant.Size = New System.Drawing.Size(120, 20)
+        Me.ucrReceiverPollutant.strNcFilePath = ""
+        Me.ucrReceiverPollutant.TabIndex = 3
+        Me.ucrReceiverPollutant.ucrSelector = Nothing
         '
-        'UcrReceiverSingle5
+        'ucrReceiverWindDirection
         '
-        Me.UcrReceiverSingle5.frmParent = Me
-        Me.UcrReceiverSingle5.Location = New System.Drawing.Point(282, 143)
-        Me.UcrReceiverSingle5.Margin = New System.Windows.Forms.Padding(0)
-        Me.UcrReceiverSingle5.Name = "UcrReceiverSingle5"
-        Me.UcrReceiverSingle5.Selector = Nothing
-        Me.UcrReceiverSingle5.Size = New System.Drawing.Size(120, 20)
-        Me.UcrReceiverSingle5.strNcFilePath = ""
-        Me.UcrReceiverSingle5.TabIndex = 6
-        Me.UcrReceiverSingle5.ucrSelector = Nothing
+        Me.ucrReceiverWindDirection.frmParent = Me
+        Me.ucrReceiverWindDirection.Location = New System.Drawing.Point(282, 143)
+        Me.ucrReceiverWindDirection.Margin = New System.Windows.Forms.Padding(0)
+        Me.ucrReceiverWindDirection.Name = "ucrReceiverWindDirection"
+        Me.ucrReceiverWindDirection.Selector = Nothing
+        Me.ucrReceiverWindDirection.Size = New System.Drawing.Size(120, 20)
+        Me.ucrReceiverWindDirection.strNcFilePath = ""
+        Me.ucrReceiverWindDirection.TabIndex = 6
+        Me.ucrReceiverWindDirection.ucrSelector = Nothing
         '
         'UcrReceiverDate
         '
@@ -100,17 +100,17 @@ Partial Class dlgOtherRosePlots
         Me.UcrReceiverDate.TabIndex = 7
         Me.UcrReceiverDate.ucrSelector = Nothing
         '
-        'UcrReceiverSingle7
+        'ucrReceiverWindSpeed
         '
-        Me.UcrReceiverSingle7.frmParent = Me
-        Me.UcrReceiverSingle7.Location = New System.Drawing.Point(281, 186)
-        Me.UcrReceiverSingle7.Margin = New System.Windows.Forms.Padding(0)
-        Me.UcrReceiverSingle7.Name = "UcrReceiverSingle7"
-        Me.UcrReceiverSingle7.Selector = Nothing
-        Me.UcrReceiverSingle7.Size = New System.Drawing.Size(120, 20)
-        Me.UcrReceiverSingle7.strNcFilePath = ""
-        Me.UcrReceiverSingle7.TabIndex = 8
-        Me.UcrReceiverSingle7.ucrSelector = Nothing
+        Me.ucrReceiverWindSpeed.frmParent = Me
+        Me.ucrReceiverWindSpeed.Location = New System.Drawing.Point(281, 186)
+        Me.ucrReceiverWindSpeed.Margin = New System.Windows.Forms.Padding(0)
+        Me.ucrReceiverWindSpeed.Name = "ucrReceiverWindSpeed"
+        Me.ucrReceiverWindSpeed.Selector = Nothing
+        Me.ucrReceiverWindSpeed.Size = New System.Drawing.Size(120, 20)
+        Me.ucrReceiverWindSpeed.strNcFilePath = ""
+        Me.ucrReceiverWindSpeed.TabIndex = 8
+        Me.ucrReceiverWindSpeed.ucrSelector = Nothing
         '
         'lblWindSpeed
         '
@@ -324,10 +324,10 @@ Partial Class dlgOtherRosePlots
         Me.Controls.Add(Me.lblWindDirection)
         Me.Controls.Add(Me.lblDate)
         Me.Controls.Add(Me.lblWindSpeed)
-        Me.Controls.Add(Me.UcrReceiverSingle7)
+        Me.Controls.Add(Me.ucrReceiverWindSpeed)
         Me.Controls.Add(Me.UcrReceiverDate)
-        Me.Controls.Add(Me.UcrReceiverSingle5)
-        Me.Controls.Add(Me.UcrReceiverSingle2)
+        Me.Controls.Add(Me.ucrReceiverWindDirection)
+        Me.Controls.Add(Me.ucrReceiverPollutant)
         Me.Controls.Add(Me.ucrSelectorOtherRosePlots)
         Me.Controls.Add(Me.ucrBase)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
@@ -343,7 +343,7 @@ Partial Class dlgOtherRosePlots
 
     Friend WithEvents ucrBase As ucrButtons
     Friend WithEvents ucrSelectorOtherRosePlots As ucrSelectorByDataFrameAddRemove
-    Friend WithEvents UcrReceiverSingle2 As ucrReceiverSingle
+    Friend WithEvents ucrReceiverPollutant As ucrReceiverSingle
     Friend WithEvents UcrInputComboBox3 As ucrInputComboBox
     Friend WithEvents UcrInputComboBox2 As ucrInputComboBox
     Friend WithEvents UcrInputComboBox1 As ucrInputComboBox
@@ -354,9 +354,9 @@ Partial Class dlgOtherRosePlots
     Friend WithEvents lblWindDirection As Label
     Friend WithEvents lblDate As Label
     Friend WithEvents lblWindSpeed As Label
-    Friend WithEvents UcrReceiverSingle7 As ucrReceiverSingle
+    Friend WithEvents ucrReceiverWindSpeed As ucrReceiverSingle
     Friend WithEvents UcrReceiverDate As ucrReceiverSingle
-    Friend WithEvents UcrReceiverSingle5 As ucrReceiverSingle
+    Friend WithEvents ucrReceiverWindDirection As ucrReceiverSingle
     Friend WithEvents RadioButton3 As RadioButton
     Friend WithEvents RadioButton2 As RadioButton
     Friend WithEvents rdoFrequencyPolygon As RadioButton

@@ -40,11 +40,19 @@ Public Class dlgOtherRosePlots
         ucrSelectorOtherRosePlots.SetParameter(New RParameter("mydata", 0))
         ucrSelectorOtherRosePlots.SetParameterIsrfunction()
 
-        UcrReceiverDate.SetParameter(New RParameter("x", 0))
         UcrReceiverDate.Selector = ucrSelectorOtherRosePlots
+        UcrReceiverDate.SetParameter(New RParameter("date_name", 1))
         UcrReceiverDate.SetParameterIsString()
-        UcrReceiverDate.bWithQuotes = False
-        UcrReceiverDate.SetDataType("date")
+        UcrReceiverDate.SetClimaticType("date")
+        UcrReceiverDate.bAutoFill = True
+
+        ucrReceiverWindDirection.Selector = ucrSelectorOtherRosePlots
+        ucrReceiverWindDirection.SetParameter(New RParameter("wd_name", 2))
+        ucrReceiverWindDirection.SetParameterIsString()
+
+        ucrReceiverWindSpeed.SetParameter(New RParameter("ws_name", 3))
+        ucrReceiverWindSpeed.Selector = ucrSelectorOtherRosePlots
+        ucrReceiverWindSpeed.SetParameterIsString()
     End Sub
 
     Private Sub SetDefaults()
