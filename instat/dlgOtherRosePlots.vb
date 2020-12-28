@@ -19,6 +19,9 @@ Public Class dlgOtherRosePlots
     Private bFirstLoad As Boolean = True
     Private bReset As Boolean = True
 
+    'R function
+    Private clsOtherRosePlots As RFunction
+
     Private Sub dlgOtherRosePlots_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         autoTranslate(Me)
         If bFirstLoad Then
@@ -53,17 +56,52 @@ Public Class dlgOtherRosePlots
         ucrReceiverWindSpeed.SetParameter(New RParameter("ws_name", 3))
         ucrReceiverWindSpeed.Selector = ucrSelectorOtherRosePlots
         ucrReceiverWindSpeed.SetParameterIsString()
+
+        ucrInputMethod.SetItems({"Mean", "Mean Above", "Mean Below", "Prop Above", "Prop Below", "Std.dev"})
+        ucrInputMethod.SetDropDownStyleAsNonEditable()
+
+        ucrInputColor.SetItems({"Mean", "Mean Above", "Mean Below", "Prop Above", "Prop Below", "Std.dev"})
+        ucrInputColor.SetDropDownStyleAsNonEditable()
+
+        ucrInputFacet.SetItems({"Mean", "Mean Above", "Mean Below", "Prop Above", "Prop Below", "Std.dev"})
+        ucrInputFacet.SetDropDownStyleAsNonEditable()
+
+        ucrSaveGraph.SetPrefix("OtherRosePlots")
+        ucrSaveGraph.SetIsComboBox()
+        ucrSaveGraph.SetSaveTypeAsGraph()
+        ucrSaveGraph.SetCheckBoxText("Save Graph")
+        ucrSaveGraph.SetDataFrameSelector(ucrSelectorOtherRosePlots.ucrAvailableDataFrames)
+        ucrSaveGraph.SetAssignToIfUncheckedValue("last_graph")
     End Sub
 
     Private Sub SetDefaults()
-        Throw New NotImplementedException()
+        clsOtherRosePlots = New RFunction
+
+        clsOtherRosePlots.AddParameter("type", Chr(34) & "year" & Chr(34), iPosition:=4)
+        clsOtherRosePlots.AddParameter("Statistic", Chr(34) & "" & Chr(34), iPosition:=4)
+        clsOtherRosePlots.AddParameter("Cols", Chr(34) & "heat" & Chr(34), iPosition:=4)
+
+        ucrSelectorOtherRosePlots.Reset()
+        UcrReceiverDate.SetMeAsReceiver()
+
+        clsOtherRosePlots.SetRCommand("other_rose_plots")
+
+        ucrBase.clsRsyntax.SetBaseRFunction(clsOtherRosePlots)
     End Sub
 
     Private Sub SetRCodeForControls(bReset As Boolean)
-        Throw New NotImplementedException()
+        SetRCode(Me, ucrBase.clsRsyntax.clsBaseFunction, bReset)
     End Sub
 
     Private Sub TestOkEnabled()
-        Throw New NotImplementedException()
+        If UcrReceiverDate.IsEmpty Then
+            ucrBase.OKEnabled(False)
+        Else
+            ucrBase.OKEnabled(True)
+        End If
+    End Sub
+
+    Private Sub UcrReceiverDate_ControlContentsChanged(ucrChangedControl As ucrCore) Handles UcrReceiverDate.ControlContentsChanged
+        TestOkEnabled()
     End Sub
 End Class

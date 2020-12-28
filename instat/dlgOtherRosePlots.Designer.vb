@@ -35,20 +35,21 @@ Partial Class dlgOtherRosePlots
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.UcrInputComboBox1 = New instat.ucrInputComboBox()
-        Me.UcrInputComboBox2 = New instat.ucrInputComboBox()
-        Me.UcrInputComboBox3 = New instat.ucrInputComboBox()
+        Me.ucrInputColor = New instat.ucrInputComboBox()
+        Me.ucrInputMethod = New instat.ucrInputComboBox()
+        Me.ucrInputFacet = New instat.ucrInputComboBox()
         Me.rdoFrequencyPolygon = New System.Windows.Forms.RadioButton()
         Me.rdoDensity = New System.Windows.Forms.RadioButton()
         Me.rdoHistogram = New System.Windows.Forms.RadioButton()
         Me.ucrPnlOptions = New instat.UcrPanel()
         Me.RadioButton2 = New System.Windows.Forms.RadioButton()
         Me.RadioButton3 = New System.Windows.Forms.RadioButton()
+        Me.ucrSaveGraph = New instat.ucrSave()
         Me.SuspendLayout()
         '
         'ucrBase
         '
-        Me.ucrBase.Location = New System.Drawing.Point(10, 377)
+        Me.ucrBase.Location = New System.Drawing.Point(10, 401)
         Me.ucrBase.Name = "ucrBase"
         Me.ucrBase.Size = New System.Drawing.Size(410, 52)
         Me.ucrBase.TabIndex = 0
@@ -175,35 +176,35 @@ Partial Class dlgOtherRosePlots
         Me.Label3.TabIndex = 16
         Me.Label3.Text = "Facet:"
         '
-        'UcrInputComboBox1
+        'ucrInputColor
         '
-        Me.UcrInputComboBox1.AddQuotesIfUnrecognised = True
-        Me.UcrInputComboBox1.GetSetSelectedIndex = -1
-        Me.UcrInputComboBox1.IsReadOnly = False
-        Me.UcrInputComboBox1.Location = New System.Drawing.Point(83, 302)
-        Me.UcrInputComboBox1.Name = "UcrInputComboBox1"
-        Me.UcrInputComboBox1.Size = New System.Drawing.Size(97, 21)
-        Me.UcrInputComboBox1.TabIndex = 17
+        Me.ucrInputColor.AddQuotesIfUnrecognised = True
+        Me.ucrInputColor.GetSetSelectedIndex = -1
+        Me.ucrInputColor.IsReadOnly = False
+        Me.ucrInputColor.Location = New System.Drawing.Point(83, 302)
+        Me.ucrInputColor.Name = "ucrInputColor"
+        Me.ucrInputColor.Size = New System.Drawing.Size(97, 21)
+        Me.ucrInputColor.TabIndex = 17
         '
-        'UcrInputComboBox2
+        'ucrInputMethod
         '
-        Me.UcrInputComboBox2.AddQuotesIfUnrecognised = True
-        Me.UcrInputComboBox2.GetSetSelectedIndex = -1
-        Me.UcrInputComboBox2.IsReadOnly = False
-        Me.UcrInputComboBox2.Location = New System.Drawing.Point(83, 271)
-        Me.UcrInputComboBox2.Name = "UcrInputComboBox2"
-        Me.UcrInputComboBox2.Size = New System.Drawing.Size(97, 21)
-        Me.UcrInputComboBox2.TabIndex = 18
+        Me.ucrInputMethod.AddQuotesIfUnrecognised = True
+        Me.ucrInputMethod.GetSetSelectedIndex = -1
+        Me.ucrInputMethod.IsReadOnly = False
+        Me.ucrInputMethod.Location = New System.Drawing.Point(83, 271)
+        Me.ucrInputMethod.Name = "ucrInputMethod"
+        Me.ucrInputMethod.Size = New System.Drawing.Size(97, 21)
+        Me.ucrInputMethod.TabIndex = 18
         '
-        'UcrInputComboBox3
+        'ucrInputFacet
         '
-        Me.UcrInputComboBox3.AddQuotesIfUnrecognised = True
-        Me.UcrInputComboBox3.GetSetSelectedIndex = -1
-        Me.UcrInputComboBox3.IsReadOnly = False
-        Me.UcrInputComboBox3.Location = New System.Drawing.Point(83, 329)
-        Me.UcrInputComboBox3.Name = "UcrInputComboBox3"
-        Me.UcrInputComboBox3.Size = New System.Drawing.Size(97, 21)
-        Me.UcrInputComboBox3.TabIndex = 19
+        Me.ucrInputFacet.AddQuotesIfUnrecognised = True
+        Me.ucrInputFacet.GetSetSelectedIndex = -1
+        Me.ucrInputFacet.IsReadOnly = False
+        Me.ucrInputFacet.Location = New System.Drawing.Point(83, 329)
+        Me.ucrInputFacet.Name = "ucrInputFacet"
+        Me.ucrInputFacet.Size = New System.Drawing.Size(97, 21)
+        Me.ucrInputFacet.TabIndex = 19
         '
         'rdoFrequencyPolygon
         '
@@ -303,20 +304,29 @@ Partial Class dlgOtherRosePlots
         Me.RadioButton3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         Me.RadioButton3.UseVisualStyleBackColor = True
         '
+        'ucrSaveGraph
+        '
+        Me.ucrSaveGraph.Location = New System.Drawing.Point(10, 367)
+        Me.ucrSaveGraph.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.ucrSaveGraph.Name = "ucrSaveGraph"
+        Me.ucrSaveGraph.Size = New System.Drawing.Size(403, 34)
+        Me.ucrSaveGraph.TabIndex = 27
+        '
         'dlgOtherRosePlots
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(416, 456)
+        Me.Controls.Add(Me.ucrSaveGraph)
         Me.Controls.Add(Me.RadioButton3)
         Me.Controls.Add(Me.RadioButton2)
         Me.Controls.Add(Me.rdoFrequencyPolygon)
         Me.Controls.Add(Me.rdoDensity)
         Me.Controls.Add(Me.rdoHistogram)
         Me.Controls.Add(Me.ucrPnlOptions)
-        Me.Controls.Add(Me.UcrInputComboBox3)
-        Me.Controls.Add(Me.UcrInputComboBox2)
-        Me.Controls.Add(Me.UcrInputComboBox1)
+        Me.Controls.Add(Me.ucrInputFacet)
+        Me.Controls.Add(Me.ucrInputMethod)
+        Me.Controls.Add(Me.ucrInputColor)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
@@ -344,9 +354,9 @@ Partial Class dlgOtherRosePlots
     Friend WithEvents ucrBase As ucrButtons
     Friend WithEvents ucrSelectorOtherRosePlots As ucrSelectorByDataFrameAddRemove
     Friend WithEvents ucrReceiverPollutant As ucrReceiverSingle
-    Friend WithEvents UcrInputComboBox3 As ucrInputComboBox
-    Friend WithEvents UcrInputComboBox2 As ucrInputComboBox
-    Friend WithEvents UcrInputComboBox1 As ucrInputComboBox
+    Friend WithEvents ucrInputFacet As ucrInputComboBox
+    Friend WithEvents ucrInputMethod As ucrInputComboBox
+    Friend WithEvents ucrInputColor As ucrInputComboBox
     Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
@@ -363,4 +373,5 @@ Partial Class dlgOtherRosePlots
     Friend WithEvents rdoDensity As RadioButton
     Friend WithEvents rdoHistogram As RadioButton
     Friend WithEvents ucrPnlOptions As UcrPanel
+    Friend WithEvents ucrSaveGraph As ucrSave
 End Class
