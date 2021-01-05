@@ -44,6 +44,18 @@ Public Class dlgOtherRosePlots
 
         ucrBase.clsRsyntax.iCallType = 3
 
+        ucrPnlOptions.AddRadioButton(rdoPercentileRose)
+        ucrPnlOptions.AddRadioButton(rdoPolarCluster)
+        ucrPnlOptions.AddRadioButton(rdoPolarFrequency)
+        ucrPnlOptions.AddRadioButton(rdoPolarPlot)
+        ucrPnlOptions.AddRadioButton(rdoPolarAnnulus)
+
+        'ucrPnlOptions.AddFunctionNamesCondition(rdoPercentileRose, "other_rose_plots")
+        'ucrPnlOptions.AddFunctionNamesCondition(rdoPolarCluster, "other_rose_plots")
+        'ucrPnlOptions.AddFunctionNamesCondition(rdoPolarFrequency, "other_rose_plots")
+        'ucrPnlOptions.AddFunctionNamesCondition(rdoPolarPlot, "other_rose_plots")
+        'ucrPnlOptions.AddFunctionNamesCondition(rdoPolarAnnulus, "other_rose_plots")
+
         ucrSelectorOtherRosePlots.SetParameter(New RParameter("mydata", 0))
         ucrSelectorOtherRosePlots.SetParameterIsrfunction()
 
@@ -61,23 +73,13 @@ Public Class dlgOtherRosePlots
         ucrReceiverWindSpeed.Selector = ucrSelectorOtherRosePlots
         ucrReceiverWindSpeed.SetParameterIsString()
 
-        ucrInputStatistic.SetParameter(New RParameter("statistic", 9))
-        dctStatistic.Add("Frequency", Chr(34) & "frequency" & Chr(34))
-        dctStatistic.Add("Mean", Chr(34) & "mean" & Chr(34))
-        dctStatistic.Add("Median", Chr(34) & "median" & Chr(34))
-        dctStatistic.Add("Max", Chr(34) & "max" & Chr(34))
-        dctStatistic.Add("Stdev", Chr(34) & "stdev" & Chr(34))
-        dctStatistic.Add("Weighted mean", Chr(34) & "weighted.mean" & Chr(34))
-        ucrInputStatistic.SetItems(dctStatistic)
-        ucrInputStatistic.SetDropDownStyleAsNonEditable()
+        ucrReceiverPollutant.SetParameter(New RParameter("pollutant", 4))
+        ucrReceiverPollutant.Selector = ucrSelectorOtherRosePlots
+        ucrReceiverPollutant.SetParameterIsString()
 
-        ucrInputColor.SetParameter(New RParameter("cols", 10))
-        dctColor.Add("Default", Chr(34) & "default" & Chr(34))
-        dctColor.Add("Increment", Chr(34) & "increment" & Chr(34))
-        dctColor.Add("Heat", Chr(34) & "heat" & Chr(34))
-        dctColor.Add("Jet", Chr(34) & "jet" & Chr(34))
-        ucrInputColor.SetItems(dctColor)
-        ucrInputColor.SetDropDownStyleAsNonEditable()
+        ucrChkTransform.SetText("Transform")
+        ucrChkTransform.SetParameter(New RParameter("trans", 5))
+        ucrChkTransform.SetValuesCheckedAndUnchecked("TRUE", "FALSE")
 
         ucrInputType.SetParameter(New RParameter("type", 6))
         dctType.Add("Default", Chr(34) & "default" & Chr(34))
@@ -93,17 +95,31 @@ Public Class dlgOtherRosePlots
         ucrInputType.SetItems(dctType)
         ucrInputType.SetDropDownStyleAsNonEditable()
 
-        ucrChkTransform.SetText("Transform")
-        ucrChkTransform.SetParameter(New RParameter("trans", 5))
-        ucrChkTransform.SetValuesCheckedAndUnchecked("TRUE", "FALSE")
+        ucrInputStatistic.SetParameter(New RParameter("statistic", 7))
+        dctStatistic.Add("Frequency", Chr(34) & "frequency" & Chr(34))
+        dctStatistic.Add("Mean", Chr(34) & "mean" & Chr(34))
+        dctStatistic.Add("Median", Chr(34) & "median" & Chr(34))
+        dctStatistic.Add("Max", Chr(34) & "max" & Chr(34))
+        dctStatistic.Add("Stdev", Chr(34) & "stdev" & Chr(34))
+        dctStatistic.Add("Weighted mean", Chr(34) & "weighted.mean" & Chr(34))
+        ucrInputStatistic.SetItems(dctStatistic)
+        ucrInputStatistic.SetDropDownStyleAsNonEditable()
 
-        'ucrChkIncludePollutant.AddParameterPresentCondition("True", "statistic", "True")
+        ucrInputColor.SetParameter(New RParameter("cols", 8))
+        dctColor.Add("Default", Chr(34) & "default" & Chr(34))
+        dctColor.Add("Increment", Chr(34) & "increment" & Chr(34))
+        dctColor.Add("Heat", Chr(34) & "heat" & Chr(34))
+        dctColor.Add("Jet", Chr(34) & "jet" & Chr(34))
+        ucrInputColor.SetItems(dctColor)
+        ucrInputColor.SetDropDownStyleAsNonEditable()
+
+        ucrChkIncludePollutant.AddParameterPresentCondition("True", "statistic", "True")
 
         ucrChkIncludePollutant.SetText("Include Pollutant")
         ucrChkIncludePollutant.AddToLinkedControls(ucrReceiverPollutant, {True}, bNewLinkedAddRemoveParameter:=True, bNewLinkedHideIfParameterMissing:=True)
         ucrReceiverPollutant.SetLinkedDisplayControl(lblPollutant)
-        'ucrChkIncludePollutant.AddToLinkedControls(ucrInputStatistic, {True}, bNewLinkedAddRemoveParameter:=True, bNewLinkedHideIfParameterMissing:=True, bNewLinkedChangeToDefaultState:=True, objNewDefaultState:="frequency")
-        'ucrInputStatistic.SetLinkedDisplayControl(lblStatistic)
+        ucrChkIncludePollutant.AddToLinkedControls(ucrInputStatistic, {True}, bNewLinkedAddRemoveParameter:=True, bNewLinkedHideIfParameterMissing:=True, bNewLinkedChangeToDefaultState:=True, objNewDefaultState:="frequency")
+        ucrInputStatistic.SetLinkedDisplayControl(lblMethod)
 
         ucrSaveGraph.SetPrefix("OtherRosePlots")
         ucrSaveGraph.SetIsComboBox()
@@ -116,9 +132,9 @@ Public Class dlgOtherRosePlots
     Private Sub SetDefaults()
         clsOtherRosePlots = New RFunction
 
-        clsOtherRosePlots.AddParameter("type", Chr(34) & "year" & Chr(34), iPosition:=4)
-        clsOtherRosePlots.AddParameter("Statistic", Chr(34) & "" & Chr(34), iPosition:=4)
-        clsOtherRosePlots.AddParameter("Cols", Chr(34) & "heat" & Chr(34), iPosition:=4)
+        clsOtherRosePlots.AddParameter("type", Chr(34) & "year" & Chr(34), iPosition:=6)
+        clsOtherRosePlots.AddParameter("statistic", Chr(34) & "" & Chr(34), iPosition:=7)
+        clsOtherRosePlots.AddParameter("cols", Chr(34) & "heat" & Chr(34), iPosition:=8)
 
         ucrSelectorOtherRosePlots.Reset()
         UcrReceiverDate.SetMeAsReceiver()
@@ -140,11 +156,81 @@ Public Class dlgOtherRosePlots
         End If
     End Sub
 
+    Private Sub ucrBase_ClickReset(sender As Object, e As EventArgs) Handles ucrBase.ClickReset
+        SetDefaults()
+        SetRCodeForControls(True)
+        TestOkEnabled()
+    End Sub
+
+    Private Sub SetDialogOptions()
+        If rdoPolarAnnulus.Checked Then
+            clsOtherRosePlots.AddParameter("mymethod", Chr(34) & "polar_annulus" & Chr(34), iPosition:=16)
+
+            If Not ucrSaveGraph.bUserTyped Then
+                ucrSaveGraph.SetPrefix("Polar_Annulus")
+            End If
+        ElseIf rdoPolarCluster.Checked Then
+            clsOtherRosePlots.AddParameter("mymethod", Chr(34) & "polar_cluster" & Chr(34), iPosition:=16)
+
+            If Not ucrSaveGraph.bUserTyped Then
+                ucrSaveGraph.SetPrefix("Polar_Cluster")
+            End If
+        ElseIf rdoPolarFrequency.Checked Then
+            clsOtherRosePlots.AddParameter("mymethod", Chr(34) & "polar_frequency" & Chr(34), iPosition:=16)
+
+            If Not ucrSaveGraph.bUserTyped Then
+                ucrSaveGraph.SetPrefix("Polar_Frequency")
+            End If
+        ElseIf rdoPolarPlot.Checked Then
+            clsOtherRosePlots.AddParameter("mymethod", Chr(34) & "polar_plot" & Chr(34), iPosition:=16)
+
+            If Not ucrSaveGraph.bUserTyped Then
+                ucrSaveGraph.SetPrefix("Polar_Plot")
+            End If
+        ElseIf rdoPercentileRose.Checked Then
+            clsOtherRosePlots.AddParameter("mymethod", Chr(34) & "percentile_rose" & Chr(34), iPosition:=16)
+
+            If Not ucrSaveGraph.bUserTyped Then
+                ucrSaveGraph.SetPrefix("Percentile_Rose")
+            End If
+        End If
+    End Sub
+
+    Private Sub ucrPnlOptions_Control() Handles ucrPnlOptions.ControlValueChanged
+        SetDialogOptions()
+    End Sub
+
     Private Sub UcrReceiverDate_ControlContentsChanged(ucrChangedControl As ucrCore) Handles UcrReceiverDate.ControlContentsChanged
         TestOkEnabled()
     End Sub
 
-    Private Sub ucrInputFacet_Load(sender As Object, e As EventArgs) Handles ucrInputType.Load
+    Private Sub rdoPercentileRose_KeyPress(sender As Object, e As KeyPressEventArgs) Handles rdoPercentileRose.KeyPress
+        If e.KeyChar = vbCr Then
+            rdoPercentileRose.Checked = True
+        End If
+    End Sub
 
+    Private Sub rdoPolarAnnulus_KeyPress(sender As Object, e As KeyPressEventArgs) Handles rdoPolarAnnulus.KeyPress
+        If e.KeyChar = vbCr Then
+            rdoPolarAnnulus.Checked = True
+        End If
+    End Sub
+
+    Private Sub rdoPolarCluster_KeyPress(sender As Object, e As KeyPressEventArgs) Handles rdoPolarCluster.KeyPress
+        If e.KeyChar = vbCr Then
+            rdoPolarCluster.Checked = True
+        End If
+    End Sub
+
+    Private Sub rdoPolarFrequency_KeyPress(sender As Object, e As KeyPressEventArgs) Handles rdoPolarFrequency.KeyPress
+        If e.KeyChar = vbCr Then
+            rdoPolarFrequency.Checked = True
+        End If
+    End Sub
+
+    Private Sub rdoPolarPlot_KeyPress(sender As Object, e As KeyPressEventArgs) Handles rdoPolarPlot.KeyPress
+        If e.KeyChar = vbCr Then
+            rdoPolarPlot.Checked = True
+        End If
     End Sub
 End Class

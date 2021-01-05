@@ -38,12 +38,12 @@ Partial Class dlgOtherRosePlots
         Me.ucrInputColor = New instat.ucrInputComboBox()
         Me.ucrInputStatistic = New instat.ucrInputComboBox()
         Me.ucrInputType = New instat.ucrInputComboBox()
-        Me.rdoFrequencyPolygon = New System.Windows.Forms.RadioButton()
-        Me.rdoDensity = New System.Windows.Forms.RadioButton()
-        Me.rdoHistogram = New System.Windows.Forms.RadioButton()
+        Me.rdoPolarAnnulus = New System.Windows.Forms.RadioButton()
+        Me.rdoPolarPlot = New System.Windows.Forms.RadioButton()
+        Me.rdoPolarCluster = New System.Windows.Forms.RadioButton()
         Me.ucrPnlOptions = New instat.UcrPanel()
-        Me.RadioButton2 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton3 = New System.Windows.Forms.RadioButton()
+        Me.rdoPolarFrequency = New System.Windows.Forms.RadioButton()
+        Me.rdoPercentileRose = New System.Windows.Forms.RadioButton()
         Me.ucrSaveGraph = New instat.ucrSave()
         Me.ucrChkTransform = New instat.ucrCheck()
         Me.ucrChkIncludePollutant = New instat.ucrCheck()
@@ -208,59 +208,59 @@ Partial Class dlgOtherRosePlots
         Me.ucrInputType.Size = New System.Drawing.Size(97, 21)
         Me.ucrInputType.TabIndex = 19
         '
-        'rdoFrequencyPolygon
+        'rdoPolarAnnulus
         '
-        Me.rdoFrequencyPolygon.Appearance = System.Windows.Forms.Appearance.Button
-        Me.rdoFrequencyPolygon.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveCaption
-        Me.rdoFrequencyPolygon.FlatAppearance.BorderSize = 2
-        Me.rdoFrequencyPolygon.FlatAppearance.CheckedBackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.rdoFrequencyPolygon.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.rdoFrequencyPolygon.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.rdoFrequencyPolygon.Location = New System.Drawing.Point(212, 43)
-        Me.rdoFrequencyPolygon.Name = "rdoFrequencyPolygon"
-        Me.rdoFrequencyPolygon.Size = New System.Drawing.Size(95, 28)
-        Me.rdoFrequencyPolygon.TabIndex = 23
-        Me.rdoFrequencyPolygon.TabStop = True
-        Me.rdoFrequencyPolygon.Tag = "Frequency_Polygon"
-        Me.rdoFrequencyPolygon.Text = "Polar Annulus"
-        Me.rdoFrequencyPolygon.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        Me.rdoFrequencyPolygon.UseVisualStyleBackColor = True
+        Me.rdoPolarAnnulus.Appearance = System.Windows.Forms.Appearance.Button
+        Me.rdoPolarAnnulus.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveCaption
+        Me.rdoPolarAnnulus.FlatAppearance.BorderSize = 2
+        Me.rdoPolarAnnulus.FlatAppearance.CheckedBackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.rdoPolarAnnulus.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.rdoPolarAnnulus.ImeMode = System.Windows.Forms.ImeMode.NoControl
+        Me.rdoPolarAnnulus.Location = New System.Drawing.Point(212, 43)
+        Me.rdoPolarAnnulus.Name = "rdoPolarAnnulus"
+        Me.rdoPolarAnnulus.Size = New System.Drawing.Size(95, 28)
+        Me.rdoPolarAnnulus.TabIndex = 23
+        Me.rdoPolarAnnulus.TabStop = True
+        Me.rdoPolarAnnulus.Tag = ""
+        Me.rdoPolarAnnulus.Text = "Polar Annulus"
+        Me.rdoPolarAnnulus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.rdoPolarAnnulus.UseVisualStyleBackColor = True
         '
-        'rdoDensity
+        'rdoPolarPlot
         '
-        Me.rdoDensity.Appearance = System.Windows.Forms.Appearance.Button
-        Me.rdoDensity.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveCaption
-        Me.rdoDensity.FlatAppearance.BorderSize = 2
-        Me.rdoDensity.FlatAppearance.CheckedBackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.rdoDensity.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.rdoDensity.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.rdoDensity.Location = New System.Drawing.Point(261, 17)
-        Me.rdoDensity.Name = "rdoDensity"
-        Me.rdoDensity.Size = New System.Drawing.Size(96, 28)
-        Me.rdoDensity.TabIndex = 22
-        Me.rdoDensity.TabStop = True
-        Me.rdoDensity.Tag = "Density"
-        Me.rdoDensity.Text = "Polar Plot"
-        Me.rdoDensity.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        Me.rdoDensity.UseVisualStyleBackColor = True
+        Me.rdoPolarPlot.Appearance = System.Windows.Forms.Appearance.Button
+        Me.rdoPolarPlot.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveCaption
+        Me.rdoPolarPlot.FlatAppearance.BorderSize = 2
+        Me.rdoPolarPlot.FlatAppearance.CheckedBackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.rdoPolarPlot.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.rdoPolarPlot.ImeMode = System.Windows.Forms.ImeMode.NoControl
+        Me.rdoPolarPlot.Location = New System.Drawing.Point(261, 17)
+        Me.rdoPolarPlot.Name = "rdoPolarPlot"
+        Me.rdoPolarPlot.Size = New System.Drawing.Size(96, 28)
+        Me.rdoPolarPlot.TabIndex = 22
+        Me.rdoPolarPlot.TabStop = True
+        Me.rdoPolarPlot.Tag = ""
+        Me.rdoPolarPlot.Text = "Polar Plot"
+        Me.rdoPolarPlot.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.rdoPolarPlot.UseVisualStyleBackColor = True
         '
-        'rdoHistogram
+        'rdoPolarCluster
         '
-        Me.rdoHistogram.Appearance = System.Windows.Forms.Appearance.Button
-        Me.rdoHistogram.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveCaption
-        Me.rdoHistogram.FlatAppearance.BorderSize = 2
-        Me.rdoHistogram.FlatAppearance.CheckedBackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.rdoHistogram.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.rdoHistogram.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.rdoHistogram.Location = New System.Drawing.Point(110, 43)
-        Me.rdoHistogram.Name = "rdoHistogram"
-        Me.rdoHistogram.Size = New System.Drawing.Size(104, 28)
-        Me.rdoHistogram.TabIndex = 21
-        Me.rdoHistogram.TabStop = True
-        Me.rdoHistogram.Tag = "Histogram"
-        Me.rdoHistogram.Text = "Polar Cluster"
-        Me.rdoHistogram.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        Me.rdoHistogram.UseVisualStyleBackColor = True
+        Me.rdoPolarCluster.Appearance = System.Windows.Forms.Appearance.Button
+        Me.rdoPolarCluster.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveCaption
+        Me.rdoPolarCluster.FlatAppearance.BorderSize = 2
+        Me.rdoPolarCluster.FlatAppearance.CheckedBackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.rdoPolarCluster.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.rdoPolarCluster.ImeMode = System.Windows.Forms.ImeMode.NoControl
+        Me.rdoPolarCluster.Location = New System.Drawing.Point(110, 43)
+        Me.rdoPolarCluster.Name = "rdoPolarCluster"
+        Me.rdoPolarCluster.Size = New System.Drawing.Size(104, 28)
+        Me.rdoPolarCluster.TabIndex = 21
+        Me.rdoPolarCluster.TabStop = True
+        Me.rdoPolarCluster.Tag = ""
+        Me.rdoPolarCluster.Text = "Polar Cluster"
+        Me.rdoPolarCluster.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.rdoPolarCluster.UseVisualStyleBackColor = True
         '
         'ucrPnlOptions
         '
@@ -270,48 +270,48 @@ Partial Class dlgOtherRosePlots
         Me.ucrPnlOptions.Size = New System.Drawing.Size(335, 61)
         Me.ucrPnlOptions.TabIndex = 20
         '
-        'RadioButton2
+        'rdoPolarFrequency
         '
-        Me.RadioButton2.Appearance = System.Windows.Forms.Appearance.Button
-        Me.RadioButton2.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveCaption
-        Me.RadioButton2.FlatAppearance.BorderSize = 2
-        Me.RadioButton2.FlatAppearance.CheckedBackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.RadioButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.RadioButton2.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.RadioButton2.Location = New System.Drawing.Point(165, 17)
-        Me.RadioButton2.Name = "RadioButton2"
-        Me.RadioButton2.Size = New System.Drawing.Size(98, 28)
-        Me.RadioButton2.TabIndex = 25
-        Me.RadioButton2.TabStop = True
-        Me.RadioButton2.Tag = "Histogram"
-        Me.RadioButton2.Text = "Polar frequency"
-        Me.RadioButton2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        Me.RadioButton2.UseVisualStyleBackColor = True
+        Me.rdoPolarFrequency.Appearance = System.Windows.Forms.Appearance.Button
+        Me.rdoPolarFrequency.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveCaption
+        Me.rdoPolarFrequency.FlatAppearance.BorderSize = 2
+        Me.rdoPolarFrequency.FlatAppearance.CheckedBackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.rdoPolarFrequency.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.rdoPolarFrequency.ImeMode = System.Windows.Forms.ImeMode.NoControl
+        Me.rdoPolarFrequency.Location = New System.Drawing.Point(165, 17)
+        Me.rdoPolarFrequency.Name = "rdoPolarFrequency"
+        Me.rdoPolarFrequency.Size = New System.Drawing.Size(98, 28)
+        Me.rdoPolarFrequency.TabIndex = 25
+        Me.rdoPolarFrequency.TabStop = True
+        Me.rdoPolarFrequency.Tag = ""
+        Me.rdoPolarFrequency.Text = "Polar frequency"
+        Me.rdoPolarFrequency.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.rdoPolarFrequency.UseVisualStyleBackColor = True
         '
-        'RadioButton3
+        'rdoPercentileRose
         '
-        Me.RadioButton3.Appearance = System.Windows.Forms.Appearance.Button
-        Me.RadioButton3.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveCaption
-        Me.RadioButton3.FlatAppearance.BorderSize = 2
-        Me.RadioButton3.FlatAppearance.CheckedBackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.RadioButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.RadioButton3.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.RadioButton3.Location = New System.Drawing.Point(71, 17)
-        Me.RadioButton3.Name = "RadioButton3"
-        Me.RadioButton3.Size = New System.Drawing.Size(96, 28)
-        Me.RadioButton3.TabIndex = 26
-        Me.RadioButton3.TabStop = True
-        Me.RadioButton3.Tag = "Histogram"
-        Me.RadioButton3.Text = "Percentile Rose"
-        Me.RadioButton3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        Me.RadioButton3.UseVisualStyleBackColor = True
+        Me.rdoPercentileRose.Appearance = System.Windows.Forms.Appearance.Button
+        Me.rdoPercentileRose.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveCaption
+        Me.rdoPercentileRose.FlatAppearance.BorderSize = 2
+        Me.rdoPercentileRose.FlatAppearance.CheckedBackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.rdoPercentileRose.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.rdoPercentileRose.ImeMode = System.Windows.Forms.ImeMode.NoControl
+        Me.rdoPercentileRose.Location = New System.Drawing.Point(71, 17)
+        Me.rdoPercentileRose.Name = "rdoPercentileRose"
+        Me.rdoPercentileRose.Size = New System.Drawing.Size(96, 28)
+        Me.rdoPercentileRose.TabIndex = 26
+        Me.rdoPercentileRose.TabStop = True
+        Me.rdoPercentileRose.Tag = ""
+        Me.rdoPercentileRose.Text = "Percentile Rose"
+        Me.rdoPercentileRose.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.rdoPercentileRose.UseVisualStyleBackColor = True
         '
         'ucrSaveGraph
         '
         Me.ucrSaveGraph.Location = New System.Drawing.Point(10, 397)
         Me.ucrSaveGraph.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.ucrSaveGraph.Name = "ucrSaveGraph"
-        Me.ucrSaveGraph.Size = New System.Drawing.Size(403, 34)
+        Me.ucrSaveGraph.Size = New System.Drawing.Size(391, 34)
         Me.ucrSaveGraph.TabIndex = 27
         '
         'ucrChkTransform
@@ -338,11 +338,11 @@ Partial Class dlgOtherRosePlots
         Me.Controls.Add(Me.ucrChkIncludePollutant)
         Me.Controls.Add(Me.ucrChkTransform)
         Me.Controls.Add(Me.ucrSaveGraph)
-        Me.Controls.Add(Me.RadioButton3)
-        Me.Controls.Add(Me.RadioButton2)
-        Me.Controls.Add(Me.rdoFrequencyPolygon)
-        Me.Controls.Add(Me.rdoDensity)
-        Me.Controls.Add(Me.rdoHistogram)
+        Me.Controls.Add(Me.rdoPercentileRose)
+        Me.Controls.Add(Me.rdoPolarFrequency)
+        Me.Controls.Add(Me.rdoPolarAnnulus)
+        Me.Controls.Add(Me.rdoPolarPlot)
+        Me.Controls.Add(Me.rdoPolarCluster)
         Me.Controls.Add(Me.ucrPnlOptions)
         Me.Controls.Add(Me.ucrInputType)
         Me.Controls.Add(Me.ucrInputStatistic)
@@ -387,11 +387,11 @@ Partial Class dlgOtherRosePlots
     Friend WithEvents ucrReceiverWindSpeed As ucrReceiverSingle
     Friend WithEvents UcrReceiverDate As ucrReceiverSingle
     Friend WithEvents ucrReceiverWindDirection As ucrReceiverSingle
-    Friend WithEvents RadioButton3 As RadioButton
-    Friend WithEvents RadioButton2 As RadioButton
-    Friend WithEvents rdoFrequencyPolygon As RadioButton
-    Friend WithEvents rdoDensity As RadioButton
-    Friend WithEvents rdoHistogram As RadioButton
+    Friend WithEvents rdoPercentileRose As RadioButton
+    Friend WithEvents rdoPolarFrequency As RadioButton
+    Friend WithEvents rdoPolarAnnulus As RadioButton
+    Friend WithEvents rdoPolarPlot As RadioButton
+    Friend WithEvents rdoPolarCluster As RadioButton
     Friend WithEvents ucrPnlOptions As UcrPanel
     Friend WithEvents ucrSaveGraph As ucrSave
     Friend WithEvents ucrChkTransform As ucrCheck

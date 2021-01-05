@@ -1565,3 +1565,32 @@ make_factor <- function(x, ordered = is.ordered(x)) {
     factor(x, levels = as.character(unique(x)), ordered = ordered)
   }
 }
+
+
+
+other_rose_plots <- function(mydata, ws_name, wd_name, date_name, mymethod="percentile", ...){
+  if (!("ws" %in% colnames(mydata))){ 
+    mydata <- dplyr::rename(mydata, ws = !!ws_name)
+  }
+  if (!("date" %in% colnames(mydata))){ 
+    mydata <- dplyr::rename(mydata, date = !!date_name)
+  }
+  if(!("wd" %in% colnames(mydata))){    
+    mydata <- dplyr::rename(mydata, wd = !!wd_name)
+  }
+  if (mymethod == 'percentile_rose'){
+  openair::percentileRose(mydata = mydata,...)
+  }
+  if (mymethod == 'polar_plot'){
+    openair::polarPlot(mydata = mydata,...)
+  }
+  if (mymethod == 'polar_annulus'){
+    openair::polarAnnulus(mydata = mydata,...)
+  }
+  if (mymethod == 'polar_cluster'){
+    openair::polarCluster(mydata = mydata,...)
+  }
+  if (mymethod == 'polar_frequency'){
+    openair::polarFreq(mydata = mydata,...)
+  }
+}
