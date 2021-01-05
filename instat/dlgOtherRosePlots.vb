@@ -38,6 +38,10 @@ Public Class dlgOtherRosePlots
     End Sub
 
     Private Sub InitiliseDialog()
+        Dim dctStatistic As New Dictionary(Of String, String)
+        Dim dctType As New Dictionary(Of String, String)
+        Dim dctColor As New Dictionary(Of String, String)
+
         ucrBase.clsRsyntax.iCallType = 3
 
         ucrSelectorOtherRosePlots.SetParameter(New RParameter("mydata", 0))
@@ -57,14 +61,49 @@ Public Class dlgOtherRosePlots
         ucrReceiverWindSpeed.Selector = ucrSelectorOtherRosePlots
         ucrReceiverWindSpeed.SetParameterIsString()
 
-        ucrInputMethod.SetItems({"Mean", "Mean Above", "Mean Below", "Prop Above", "Prop Below", "Std.dev"})
-        ucrInputMethod.SetDropDownStyleAsNonEditable()
+        ucrInputStatistic.SetParameter(New RParameter("statistic", 9))
+        dctStatistic.Add("Frequency", Chr(34) & "frequency" & Chr(34))
+        dctStatistic.Add("Mean", Chr(34) & "mean" & Chr(34))
+        dctStatistic.Add("Median", Chr(34) & "median" & Chr(34))
+        dctStatistic.Add("Max", Chr(34) & "max" & Chr(34))
+        dctStatistic.Add("Stdev", Chr(34) & "stdev" & Chr(34))
+        dctStatistic.Add("Weighted mean", Chr(34) & "weighted.mean" & Chr(34))
+        ucrInputStatistic.SetItems(dctStatistic)
+        ucrInputStatistic.SetDropDownStyleAsNonEditable()
 
-        ucrInputColor.SetItems({"Mean", "Mean Above", "Mean Below", "Prop Above", "Prop Below", "Std.dev"})
+        ucrInputColor.SetParameter(New RParameter("cols", 10))
+        dctColor.Add("Default", Chr(34) & "default" & Chr(34))
+        dctColor.Add("Increment", Chr(34) & "increment" & Chr(34))
+        dctColor.Add("Heat", Chr(34) & "heat" & Chr(34))
+        dctColor.Add("Jet", Chr(34) & "jet" & Chr(34))
+        ucrInputColor.SetItems(dctColor)
         ucrInputColor.SetDropDownStyleAsNonEditable()
 
-        ucrInputFacet.SetItems({"Mean", "Mean Above", "Mean Below", "Prop Above", "Prop Below", "Std.dev"})
-        ucrInputFacet.SetDropDownStyleAsNonEditable()
+        ucrInputType.SetParameter(New RParameter("type", 6))
+        dctType.Add("Default", Chr(34) & "default" & Chr(34))
+        dctType.Add("Year", Chr(34) & "year" & Chr(34))
+        dctType.Add("Hour", Chr(34) & "hour" & Chr(34))
+        dctType.Add("Month", Chr(34) & "month" & Chr(34))
+        dctType.Add("Season", Chr(34) & "season" & Chr(34))
+        dctType.Add("Weekday", Chr(34) & "weekday" & Chr(34))
+        dctType.Add("Weekend", Chr(34) & "weekend" & Chr(34))
+        dctType.Add("Monthyear", Chr(34) & "monthyear" & Chr(34))
+        dctType.Add("Daylight", Chr(34) & "daylight" & Chr(34))
+        dctType.Add("DST", Chr(34) & "dst" & Chr(34))
+        ucrInputType.SetItems(dctType)
+        ucrInputType.SetDropDownStyleAsNonEditable()
+
+        ucrChkTransform.SetText("Transform")
+        ucrChkTransform.SetParameter(New RParameter("trans", 5))
+        ucrChkTransform.SetValuesCheckedAndUnchecked("TRUE", "FALSE")
+
+        'ucrChkIncludePollutant.AddParameterPresentCondition("True", "statistic", "True")
+
+        ucrChkIncludePollutant.SetText("Include Pollutant")
+        ucrChkIncludePollutant.AddToLinkedControls(ucrReceiverPollutant, {True}, bNewLinkedAddRemoveParameter:=True, bNewLinkedHideIfParameterMissing:=True)
+        ucrReceiverPollutant.SetLinkedDisplayControl(lblPollutant)
+        'ucrChkIncludePollutant.AddToLinkedControls(ucrInputStatistic, {True}, bNewLinkedAddRemoveParameter:=True, bNewLinkedHideIfParameterMissing:=True, bNewLinkedChangeToDefaultState:=True, objNewDefaultState:="frequency")
+        'ucrInputStatistic.SetLinkedDisplayControl(lblStatistic)
 
         ucrSaveGraph.SetPrefix("OtherRosePlots")
         ucrSaveGraph.SetIsComboBox()
@@ -103,5 +142,9 @@ Public Class dlgOtherRosePlots
 
     Private Sub UcrReceiverDate_ControlContentsChanged(ucrChangedControl As ucrCore) Handles UcrReceiverDate.ControlContentsChanged
         TestOkEnabled()
+    End Sub
+
+    Private Sub ucrInputFacet_Load(sender As Object, e As EventArgs) Handles ucrInputType.Load
+
     End Sub
 End Class

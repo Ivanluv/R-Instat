@@ -32,12 +32,12 @@ Partial Class dlgOtherRosePlots
         Me.lblDate = New System.Windows.Forms.Label()
         Me.lblWindDirection = New System.Windows.Forms.Label()
         Me.lblPollutant = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
+        Me.lblMethod = New System.Windows.Forms.Label()
+        Me.lblColor = New System.Windows.Forms.Label()
+        Me.lblType = New System.Windows.Forms.Label()
         Me.ucrInputColor = New instat.ucrInputComboBox()
-        Me.ucrInputMethod = New instat.ucrInputComboBox()
-        Me.ucrInputFacet = New instat.ucrInputComboBox()
+        Me.ucrInputStatistic = New instat.ucrInputComboBox()
+        Me.ucrInputType = New instat.ucrInputComboBox()
         Me.rdoFrequencyPolygon = New System.Windows.Forms.RadioButton()
         Me.rdoDensity = New System.Windows.Forms.RadioButton()
         Me.rdoHistogram = New System.Windows.Forms.RadioButton()
@@ -45,11 +45,13 @@ Partial Class dlgOtherRosePlots
         Me.RadioButton2 = New System.Windows.Forms.RadioButton()
         Me.RadioButton3 = New System.Windows.Forms.RadioButton()
         Me.ucrSaveGraph = New instat.ucrSave()
+        Me.ucrChkTransform = New instat.ucrCheck()
+        Me.ucrChkIncludePollutant = New instat.ucrCheck()
         Me.SuspendLayout()
         '
         'ucrBase
         '
-        Me.ucrBase.Location = New System.Drawing.Point(10, 401)
+        Me.ucrBase.Location = New System.Drawing.Point(10, 431)
         Me.ucrBase.Name = "ucrBase"
         Me.ucrBase.Size = New System.Drawing.Size(410, 52)
         Me.ucrBase.TabIndex = 0
@@ -68,7 +70,7 @@ Partial Class dlgOtherRosePlots
         'ucrReceiverPollutant
         '
         Me.ucrReceiverPollutant.frmParent = Me
-        Me.ucrReceiverPollutant.Location = New System.Drawing.Point(282, 228)
+        Me.ucrReceiverPollutant.Location = New System.Drawing.Point(282, 251)
         Me.ucrReceiverPollutant.Margin = New System.Windows.Forms.Padding(0)
         Me.ucrReceiverPollutant.Name = "ucrReceiverPollutant"
         Me.ucrReceiverPollutant.Selector = Nothing
@@ -143,38 +145,38 @@ Partial Class dlgOtherRosePlots
         'lblPollutant
         '
         Me.lblPollutant.AutoSize = True
-        Me.lblPollutant.Location = New System.Drawing.Point(278, 211)
+        Me.lblPollutant.Location = New System.Drawing.Point(278, 234)
         Me.lblPollutant.Name = "lblPollutant"
         Me.lblPollutant.Size = New System.Drawing.Size(51, 13)
         Me.lblPollutant.TabIndex = 13
         Me.lblPollutant.Text = "Pollutant:"
         '
-        'Label1
+        'lblMethod
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(23, 276)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(46, 13)
-        Me.Label1.TabIndex = 14
-        Me.Label1.Text = "Method:"
+        Me.lblMethod.AutoSize = True
+        Me.lblMethod.Location = New System.Drawing.Point(23, 276)
+        Me.lblMethod.Name = "lblMethod"
+        Me.lblMethod.Size = New System.Drawing.Size(46, 13)
+        Me.lblMethod.TabIndex = 14
+        Me.lblMethod.Text = "Method:"
         '
-        'Label2
+        'lblColor
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(23, 306)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(34, 13)
-        Me.Label2.TabIndex = 15
-        Me.Label2.Text = "Color:"
+        Me.lblColor.AutoSize = True
+        Me.lblColor.Location = New System.Drawing.Point(23, 306)
+        Me.lblColor.Name = "lblColor"
+        Me.lblColor.Size = New System.Drawing.Size(34, 13)
+        Me.lblColor.TabIndex = 15
+        Me.lblColor.Text = "Color:"
         '
-        'Label3
+        'lblType
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(23, 333)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(37, 13)
-        Me.Label3.TabIndex = 16
-        Me.Label3.Text = "Facet:"
+        Me.lblType.AutoSize = True
+        Me.lblType.Location = New System.Drawing.Point(23, 333)
+        Me.lblType.Name = "lblType"
+        Me.lblType.Size = New System.Drawing.Size(34, 13)
+        Me.lblType.TabIndex = 16
+        Me.lblType.Text = "Type:"
         '
         'ucrInputColor
         '
@@ -186,25 +188,25 @@ Partial Class dlgOtherRosePlots
         Me.ucrInputColor.Size = New System.Drawing.Size(97, 21)
         Me.ucrInputColor.TabIndex = 17
         '
-        'ucrInputMethod
+        'ucrInputStatistic
         '
-        Me.ucrInputMethod.AddQuotesIfUnrecognised = True
-        Me.ucrInputMethod.GetSetSelectedIndex = -1
-        Me.ucrInputMethod.IsReadOnly = False
-        Me.ucrInputMethod.Location = New System.Drawing.Point(83, 271)
-        Me.ucrInputMethod.Name = "ucrInputMethod"
-        Me.ucrInputMethod.Size = New System.Drawing.Size(97, 21)
-        Me.ucrInputMethod.TabIndex = 18
+        Me.ucrInputStatistic.AddQuotesIfUnrecognised = True
+        Me.ucrInputStatistic.GetSetSelectedIndex = -1
+        Me.ucrInputStatistic.IsReadOnly = False
+        Me.ucrInputStatistic.Location = New System.Drawing.Point(83, 271)
+        Me.ucrInputStatistic.Name = "ucrInputStatistic"
+        Me.ucrInputStatistic.Size = New System.Drawing.Size(97, 21)
+        Me.ucrInputStatistic.TabIndex = 18
         '
-        'ucrInputFacet
+        'ucrInputType
         '
-        Me.ucrInputFacet.AddQuotesIfUnrecognised = True
-        Me.ucrInputFacet.GetSetSelectedIndex = -1
-        Me.ucrInputFacet.IsReadOnly = False
-        Me.ucrInputFacet.Location = New System.Drawing.Point(83, 329)
-        Me.ucrInputFacet.Name = "ucrInputFacet"
-        Me.ucrInputFacet.Size = New System.Drawing.Size(97, 21)
-        Me.ucrInputFacet.TabIndex = 19
+        Me.ucrInputType.AddQuotesIfUnrecognised = True
+        Me.ucrInputType.GetSetSelectedIndex = -1
+        Me.ucrInputType.IsReadOnly = False
+        Me.ucrInputType.Location = New System.Drawing.Point(83, 329)
+        Me.ucrInputType.Name = "ucrInputType"
+        Me.ucrInputType.Size = New System.Drawing.Size(97, 21)
+        Me.ucrInputType.TabIndex = 19
         '
         'rdoFrequencyPolygon
         '
@@ -306,17 +308,35 @@ Partial Class dlgOtherRosePlots
         '
         'ucrSaveGraph
         '
-        Me.ucrSaveGraph.Location = New System.Drawing.Point(10, 367)
+        Me.ucrSaveGraph.Location = New System.Drawing.Point(10, 397)
         Me.ucrSaveGraph.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.ucrSaveGraph.Name = "ucrSaveGraph"
         Me.ucrSaveGraph.Size = New System.Drawing.Size(403, 34)
         Me.ucrSaveGraph.TabIndex = 27
         '
+        'ucrChkTransform
+        '
+        Me.ucrChkTransform.Checked = False
+        Me.ucrChkTransform.Location = New System.Drawing.Point(27, 361)
+        Me.ucrChkTransform.Name = "ucrChkTransform"
+        Me.ucrChkTransform.Size = New System.Drawing.Size(100, 20)
+        Me.ucrChkTransform.TabIndex = 28
+        '
+        'ucrChkIncludePollutant
+        '
+        Me.ucrChkIncludePollutant.Checked = False
+        Me.ucrChkIncludePollutant.Location = New System.Drawing.Point(281, 210)
+        Me.ucrChkIncludePollutant.Name = "ucrChkIncludePollutant"
+        Me.ucrChkIncludePollutant.Size = New System.Drawing.Size(100, 20)
+        Me.ucrChkIncludePollutant.TabIndex = 29
+        '
         'dlgOtherRosePlots
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(416, 456)
+        Me.ClientSize = New System.Drawing.Size(416, 485)
+        Me.Controls.Add(Me.ucrChkIncludePollutant)
+        Me.Controls.Add(Me.ucrChkTransform)
         Me.Controls.Add(Me.ucrSaveGraph)
         Me.Controls.Add(Me.RadioButton3)
         Me.Controls.Add(Me.RadioButton2)
@@ -324,12 +344,12 @@ Partial Class dlgOtherRosePlots
         Me.Controls.Add(Me.rdoDensity)
         Me.Controls.Add(Me.rdoHistogram)
         Me.Controls.Add(Me.ucrPnlOptions)
-        Me.Controls.Add(Me.ucrInputFacet)
-        Me.Controls.Add(Me.ucrInputMethod)
+        Me.Controls.Add(Me.ucrInputType)
+        Me.Controls.Add(Me.ucrInputStatistic)
         Me.Controls.Add(Me.ucrInputColor)
-        Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.lblType)
+        Me.Controls.Add(Me.lblColor)
+        Me.Controls.Add(Me.lblMethod)
         Me.Controls.Add(Me.lblPollutant)
         Me.Controls.Add(Me.lblWindDirection)
         Me.Controls.Add(Me.lblDate)
@@ -354,12 +374,12 @@ Partial Class dlgOtherRosePlots
     Friend WithEvents ucrBase As ucrButtons
     Friend WithEvents ucrSelectorOtherRosePlots As ucrSelectorByDataFrameAddRemove
     Friend WithEvents ucrReceiverPollutant As ucrReceiverSingle
-    Friend WithEvents ucrInputFacet As ucrInputComboBox
-    Friend WithEvents ucrInputMethod As ucrInputComboBox
+    Friend WithEvents ucrInputType As ucrInputComboBox
+    Friend WithEvents ucrInputStatistic As ucrInputComboBox
     Friend WithEvents ucrInputColor As ucrInputComboBox
-    Friend WithEvents Label3 As Label
-    Friend WithEvents Label2 As Label
-    Friend WithEvents Label1 As Label
+    Friend WithEvents lblType As Label
+    Friend WithEvents lblColor As Label
+    Friend WithEvents lblMethod As Label
     Friend WithEvents lblPollutant As Label
     Friend WithEvents lblWindDirection As Label
     Friend WithEvents lblDate As Label
@@ -374,4 +394,6 @@ Partial Class dlgOtherRosePlots
     Friend WithEvents rdoHistogram As RadioButton
     Friend WithEvents ucrPnlOptions As UcrPanel
     Friend WithEvents ucrSaveGraph As ucrSave
+    Friend WithEvents ucrChkTransform As ucrCheck
+    Friend WithEvents ucrChkIncludePollutant As ucrCheck
 End Class
