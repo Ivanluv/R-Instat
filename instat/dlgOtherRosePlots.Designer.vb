@@ -24,14 +24,14 @@ Partial Class dlgOtherRosePlots
     Private Sub InitializeComponent()
         Me.ucrBase = New instat.ucrButtons()
         Me.ucrSelectorOtherRosePlots = New instat.ucrSelectorByDataFrameAddRemove()
-        Me.ucrReceiverPollutant = New instat.ucrReceiverSingle()
+        Me.ucrReceiverSinglePollutant = New instat.ucrReceiverSingle()
         Me.ucrReceiverWindDirection = New instat.ucrReceiverSingle()
         Me.UcrReceiverDate = New instat.ucrReceiverSingle()
         Me.ucrReceiverWindSpeed = New instat.ucrReceiverSingle()
         Me.lblWindSpeed = New System.Windows.Forms.Label()
         Me.lblDate = New System.Windows.Forms.Label()
         Me.lblWindDirection = New System.Windows.Forms.Label()
-        Me.lblPollutant = New System.Windows.Forms.Label()
+        Me.lblSinglePollutant = New System.Windows.Forms.Label()
         Me.lblMethod = New System.Windows.Forms.Label()
         Me.lblColor = New System.Windows.Forms.Label()
         Me.lblType = New System.Windows.Forms.Label()
@@ -47,6 +47,27 @@ Partial Class dlgOtherRosePlots
         Me.ucrSaveGraph = New instat.ucrSave()
         Me.ucrChkTransform = New instat.ucrCheck()
         Me.ucrChkIncludePollutant = New instat.ucrCheck()
+        Me.ucrReceiverX = New instat.ucrReceiverSingle()
+        Me.lblVariableToPlotAgainstCluster = New System.Windows.Forms.Label()
+        Me.ucrReceiverMultiplePollutants = New instat.ucrReceiverMultiple()
+        Me.ucrInputMethod = New instat.ucrInputComboBox()
+        Me.ucrChkMultiplePollutants = New instat.ucrCheck()
+        Me.ucrChkNormalise = New instat.ucrCheck()
+        Me.ucrNumberOfClusters = New instat.ucrNud()
+        Me.lblNoOfClusters = New System.Windows.Forms.Label()
+        Me.lblPercentile = New System.Windows.Forms.Label()
+        Me.ucrNudPercentile = New instat.ucrNud()
+        Me.ucrInputSmooth = New instat.ucrInputComboBox()
+        Me.lblSmooth = New System.Windows.Forms.Label()
+        Me.ucrChkForcePositive = New instat.ucrCheck()
+        Me.ucrChkPadDate = New instat.ucrCheck()
+        Me.ucrchkExcludeMissing = New instat.ucrCheck()
+        Me.lblMultiplePollutants = New System.Windows.Forms.Label()
+        Me.lblStatistic = New System.Windows.Forms.Label()
+        Me.ucrReceiverSinglePollutantPolarFreq = New instat.ucrReceiverSingle()
+        Me.lblPollutantPolarFreq = New System.Windows.Forms.Label()
+        Me.ucrInputStatisticPolarFreq = New instat.ucrInputComboBox()
+        Me.lblStatisticPolarFreq = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'ucrBase
@@ -67,22 +88,22 @@ Partial Class dlgOtherRosePlots
         Me.ucrSelectorOtherRosePlots.Size = New System.Drawing.Size(210, 180)
         Me.ucrSelectorOtherRosePlots.TabIndex = 1
         '
-        'ucrReceiverPollutant
+        'ucrReceiverSinglePollutant
         '
-        Me.ucrReceiverPollutant.frmParent = Me
-        Me.ucrReceiverPollutant.Location = New System.Drawing.Point(282, 251)
-        Me.ucrReceiverPollutant.Margin = New System.Windows.Forms.Padding(0)
-        Me.ucrReceiverPollutant.Name = "ucrReceiverPollutant"
-        Me.ucrReceiverPollutant.Selector = Nothing
-        Me.ucrReceiverPollutant.Size = New System.Drawing.Size(120, 20)
-        Me.ucrReceiverPollutant.strNcFilePath = ""
-        Me.ucrReceiverPollutant.TabIndex = 3
-        Me.ucrReceiverPollutant.ucrSelector = Nothing
+        Me.ucrReceiverSinglePollutant.frmParent = Me
+        Me.ucrReceiverSinglePollutant.Location = New System.Drawing.Point(282, 282)
+        Me.ucrReceiverSinglePollutant.Margin = New System.Windows.Forms.Padding(0)
+        Me.ucrReceiverSinglePollutant.Name = "ucrReceiverSinglePollutant"
+        Me.ucrReceiverSinglePollutant.Selector = Nothing
+        Me.ucrReceiverSinglePollutant.Size = New System.Drawing.Size(120, 20)
+        Me.ucrReceiverSinglePollutant.strNcFilePath = ""
+        Me.ucrReceiverSinglePollutant.TabIndex = 3
+        Me.ucrReceiverSinglePollutant.ucrSelector = Nothing
         '
         'ucrReceiverWindDirection
         '
         Me.ucrReceiverWindDirection.frmParent = Me
-        Me.ucrReceiverWindDirection.Location = New System.Drawing.Point(282, 143)
+        Me.ucrReceiverWindDirection.Location = New System.Drawing.Point(282, 141)
         Me.ucrReceiverWindDirection.Margin = New System.Windows.Forms.Padding(0)
         Me.ucrReceiverWindDirection.Name = "ucrReceiverWindDirection"
         Me.ucrReceiverWindDirection.Selector = Nothing
@@ -94,7 +115,7 @@ Partial Class dlgOtherRosePlots
         'UcrReceiverDate
         '
         Me.UcrReceiverDate.frmParent = Me
-        Me.UcrReceiverDate.Location = New System.Drawing.Point(282, 98)
+        Me.UcrReceiverDate.Location = New System.Drawing.Point(282, 95)
         Me.UcrReceiverDate.Margin = New System.Windows.Forms.Padding(0)
         Me.UcrReceiverDate.Name = "UcrReceiverDate"
         Me.UcrReceiverDate.Selector = Nothing
@@ -106,7 +127,7 @@ Partial Class dlgOtherRosePlots
         'ucrReceiverWindSpeed
         '
         Me.ucrReceiverWindSpeed.frmParent = Me
-        Me.ucrReceiverWindSpeed.Location = New System.Drawing.Point(281, 186)
+        Me.ucrReceiverWindSpeed.Location = New System.Drawing.Point(281, 184)
         Me.ucrReceiverWindSpeed.Margin = New System.Windows.Forms.Padding(0)
         Me.ucrReceiverWindSpeed.Name = "ucrReceiverWindSpeed"
         Me.ucrReceiverWindSpeed.Selector = Nothing
@@ -118,7 +139,7 @@ Partial Class dlgOtherRosePlots
         'lblWindSpeed
         '
         Me.lblWindSpeed.AutoSize = True
-        Me.lblWindSpeed.Location = New System.Drawing.Point(278, 170)
+        Me.lblWindSpeed.Location = New System.Drawing.Point(278, 167)
         Me.lblWindSpeed.Name = "lblWindSpeed"
         Me.lblWindSpeed.Size = New System.Drawing.Size(69, 13)
         Me.lblWindSpeed.TabIndex = 9
@@ -127,7 +148,7 @@ Partial Class dlgOtherRosePlots
         'lblDate
         '
         Me.lblDate.AutoSize = True
-        Me.lblDate.Location = New System.Drawing.Point(279, 82)
+        Me.lblDate.Location = New System.Drawing.Point(279, 78)
         Me.lblDate.Name = "lblDate"
         Me.lblDate.Size = New System.Drawing.Size(33, 13)
         Me.lblDate.TabIndex = 11
@@ -136,20 +157,20 @@ Partial Class dlgOtherRosePlots
         'lblWindDirection
         '
         Me.lblWindDirection.AutoSize = True
-        Me.lblWindDirection.Location = New System.Drawing.Point(278, 127)
+        Me.lblWindDirection.Location = New System.Drawing.Point(278, 122)
         Me.lblWindDirection.Name = "lblWindDirection"
         Me.lblWindDirection.Size = New System.Drawing.Size(80, 13)
         Me.lblWindDirection.TabIndex = 12
         Me.lblWindDirection.Text = "Wind Direction:"
         '
-        'lblPollutant
+        'lblSinglePollutant
         '
-        Me.lblPollutant.AutoSize = True
-        Me.lblPollutant.Location = New System.Drawing.Point(278, 234)
-        Me.lblPollutant.Name = "lblPollutant"
-        Me.lblPollutant.Size = New System.Drawing.Size(51, 13)
-        Me.lblPollutant.TabIndex = 13
-        Me.lblPollutant.Text = "Pollutant:"
+        Me.lblSinglePollutant.AutoSize = True
+        Me.lblSinglePollutant.Location = New System.Drawing.Point(278, 266)
+        Me.lblSinglePollutant.Name = "lblSinglePollutant"
+        Me.lblSinglePollutant.Size = New System.Drawing.Size(51, 13)
+        Me.lblSinglePollutant.TabIndex = 13
+        Me.lblSinglePollutant.Text = "Pollutant:"
         '
         'lblMethod
         '
@@ -317,7 +338,7 @@ Partial Class dlgOtherRosePlots
         'ucrChkTransform
         '
         Me.ucrChkTransform.Checked = False
-        Me.ucrChkTransform.Location = New System.Drawing.Point(27, 361)
+        Me.ucrChkTransform.Location = New System.Drawing.Point(405, 362)
         Me.ucrChkTransform.Name = "ucrChkTransform"
         Me.ucrChkTransform.Size = New System.Drawing.Size(100, 20)
         Me.ucrChkTransform.TabIndex = 28
@@ -325,16 +346,236 @@ Partial Class dlgOtherRosePlots
         'ucrChkIncludePollutant
         '
         Me.ucrChkIncludePollutant.Checked = False
-        Me.ucrChkIncludePollutant.Location = New System.Drawing.Point(281, 210)
+        Me.ucrChkIncludePollutant.Location = New System.Drawing.Point(281, 243)
         Me.ucrChkIncludePollutant.Name = "ucrChkIncludePollutant"
         Me.ucrChkIncludePollutant.Size = New System.Drawing.Size(100, 20)
         Me.ucrChkIncludePollutant.TabIndex = 29
+        '
+        'ucrReceiverX
+        '
+        Me.ucrReceiverX.frmParent = Me
+        Me.ucrReceiverX.Location = New System.Drawing.Point(281, 221)
+        Me.ucrReceiverX.Margin = New System.Windows.Forms.Padding(0)
+        Me.ucrReceiverX.Name = "ucrReceiverX"
+        Me.ucrReceiverX.Selector = Nothing
+        Me.ucrReceiverX.Size = New System.Drawing.Size(120, 20)
+        Me.ucrReceiverX.strNcFilePath = ""
+        Me.ucrReceiverX.TabIndex = 30
+        Me.ucrReceiverX.ucrSelector = Nothing
+        '
+        'lblVariableToPlotAgainstCluster
+        '
+        Me.lblVariableToPlotAgainstCluster.AutoSize = True
+        Me.lblVariableToPlotAgainstCluster.Location = New System.Drawing.Point(279, 204)
+        Me.lblVariableToPlotAgainstCluster.Name = "lblVariableToPlotAgainstCluster"
+        Me.lblVariableToPlotAgainstCluster.Size = New System.Drawing.Size(66, 13)
+        Me.lblVariableToPlotAgainstCluster.TabIndex = 31
+        Me.lblVariableToPlotAgainstCluster.Text = "Plot Against:"
+        '
+        'ucrReceiverMultiplePollutants
+        '
+        Me.ucrReceiverMultiplePollutants.frmParent = Me
+        Me.ucrReceiverMultiplePollutants.Location = New System.Drawing.Point(282, 282)
+        Me.ucrReceiverMultiplePollutants.Margin = New System.Windows.Forms.Padding(0)
+        Me.ucrReceiverMultiplePollutants.Name = "ucrReceiverMultiplePollutants"
+        Me.ucrReceiverMultiplePollutants.Selector = Nothing
+        Me.ucrReceiverMultiplePollutants.Size = New System.Drawing.Size(120, 100)
+        Me.ucrReceiverMultiplePollutants.strNcFilePath = ""
+        Me.ucrReceiverMultiplePollutants.TabIndex = 32
+        Me.ucrReceiverMultiplePollutants.ucrSelector = Nothing
+        '
+        'ucrInputMethod
+        '
+        Me.ucrInputMethod.AddQuotesIfUnrecognised = True
+        Me.ucrInputMethod.GetSetSelectedIndex = -1
+        Me.ucrInputMethod.IsReadOnly = False
+        Me.ucrInputMethod.Location = New System.Drawing.Point(83, 271)
+        Me.ucrInputMethod.Name = "ucrInputMethod"
+        Me.ucrInputMethod.Size = New System.Drawing.Size(97, 21)
+        Me.ucrInputMethod.TabIndex = 33
+        '
+        'ucrChkMultiplePollutants
+        '
+        Me.ucrChkMultiplePollutants.Checked = False
+        Me.ucrChkMultiplePollutants.Location = New System.Drawing.Point(405, 266)
+        Me.ucrChkMultiplePollutants.Name = "ucrChkMultiplePollutants"
+        Me.ucrChkMultiplePollutants.Size = New System.Drawing.Size(100, 20)
+        Me.ucrChkMultiplePollutants.TabIndex = 34
+        '
+        'ucrChkNormalise
+        '
+        Me.ucrChkNormalise.Checked = False
+        Me.ucrChkNormalise.Location = New System.Drawing.Point(405, 326)
+        Me.ucrChkNormalise.Name = "ucrChkNormalise"
+        Me.ucrChkNormalise.Size = New System.Drawing.Size(100, 20)
+        Me.ucrChkNormalise.TabIndex = 35
+        '
+        'ucrNumberOfClusters
+        '
+        Me.ucrNumberOfClusters.DecimalPlaces = New Decimal(New Integer() {0, 0, 0, 0})
+        Me.ucrNumberOfClusters.Increment = New Decimal(New Integer() {1, 0, 0, 0})
+        Me.ucrNumberOfClusters.Location = New System.Drawing.Point(130, 356)
+        Me.ucrNumberOfClusters.Maximum = New Decimal(New Integer() {100, 0, 0, 0})
+        Me.ucrNumberOfClusters.Minimum = New Decimal(New Integer() {0, 0, 0, 0})
+        Me.ucrNumberOfClusters.Name = "ucrNumberOfClusters"
+        Me.ucrNumberOfClusters.Size = New System.Drawing.Size(50, 20)
+        Me.ucrNumberOfClusters.TabIndex = 36
+        Me.ucrNumberOfClusters.Value = New Decimal(New Integer() {0, 0, 0, 0})
+        '
+        'lblNoOfClusters
+        '
+        Me.lblNoOfClusters.AutoSize = True
+        Me.lblNoOfClusters.Location = New System.Drawing.Point(23, 362)
+        Me.lblNoOfClusters.Name = "lblNoOfClusters"
+        Me.lblNoOfClusters.Size = New System.Drawing.Size(78, 13)
+        Me.lblNoOfClusters.TabIndex = 37
+        Me.lblNoOfClusters.Text = "No Of Clusters:"
+        '
+        'lblPercentile
+        '
+        Me.lblPercentile.AutoSize = True
+        Me.lblPercentile.Location = New System.Drawing.Point(414, 423)
+        Me.lblPercentile.Name = "lblPercentile"
+        Me.lblPercentile.Size = New System.Drawing.Size(57, 13)
+        Me.lblPercentile.TabIndex = 41
+        Me.lblPercentile.Text = "Percentile:"
+        '
+        'ucrNudPercentile
+        '
+        Me.ucrNudPercentile.DecimalPlaces = New Decimal(New Integer() {0, 0, 0, 0})
+        Me.ucrNudPercentile.Increment = New Decimal(New Integer() {1, 0, 0, 0})
+        Me.ucrNudPercentile.Location = New System.Drawing.Point(521, 417)
+        Me.ucrNudPercentile.Maximum = New Decimal(New Integer() {100, 0, 0, 0})
+        Me.ucrNudPercentile.Minimum = New Decimal(New Integer() {0, 0, 0, 0})
+        Me.ucrNudPercentile.Name = "ucrNudPercentile"
+        Me.ucrNudPercentile.Size = New System.Drawing.Size(50, 20)
+        Me.ucrNudPercentile.TabIndex = 40
+        Me.ucrNudPercentile.Value = New Decimal(New Integer() {0, 0, 0, 0})
+        '
+        'ucrInputSmooth
+        '
+        Me.ucrInputSmooth.AddQuotesIfUnrecognised = True
+        Me.ucrInputSmooth.GetSetSelectedIndex = -1
+        Me.ucrInputSmooth.IsReadOnly = False
+        Me.ucrInputSmooth.Location = New System.Drawing.Point(474, 390)
+        Me.ucrInputSmooth.Name = "ucrInputSmooth"
+        Me.ucrInputSmooth.Size = New System.Drawing.Size(97, 21)
+        Me.ucrInputSmooth.TabIndex = 39
+        '
+        'lblSmooth
+        '
+        Me.lblSmooth.AutoSize = True
+        Me.lblSmooth.Location = New System.Drawing.Point(414, 394)
+        Me.lblSmooth.Name = "lblSmooth"
+        Me.lblSmooth.Size = New System.Drawing.Size(46, 13)
+        Me.lblSmooth.TabIndex = 38
+        Me.lblSmooth.Text = "Smooth:"
+        '
+        'ucrChkForcePositive
+        '
+        Me.ucrChkForcePositive.Checked = False
+        Me.ucrChkForcePositive.Location = New System.Drawing.Point(417, 141)
+        Me.ucrChkForcePositive.Name = "ucrChkForcePositive"
+        Me.ucrChkForcePositive.Size = New System.Drawing.Size(100, 20)
+        Me.ucrChkForcePositive.TabIndex = 42
+        '
+        'ucrChkPadDate
+        '
+        Me.ucrChkPadDate.Checked = False
+        Me.ucrChkPadDate.Location = New System.Drawing.Point(417, 106)
+        Me.ucrChkPadDate.Name = "ucrChkPadDate"
+        Me.ucrChkPadDate.Size = New System.Drawing.Size(100, 20)
+        Me.ucrChkPadDate.TabIndex = 43
+        '
+        'ucrchkExcludeMissing
+        '
+        Me.ucrchkExcludeMissing.Checked = False
+        Me.ucrchkExcludeMissing.Location = New System.Drawing.Point(417, 70)
+        Me.ucrchkExcludeMissing.Name = "ucrchkExcludeMissing"
+        Me.ucrchkExcludeMissing.Size = New System.Drawing.Size(100, 20)
+        Me.ucrchkExcludeMissing.TabIndex = 44
+        '
+        'lblMultiplePollutants
+        '
+        Me.lblMultiplePollutants.AutoSize = True
+        Me.lblMultiplePollutants.Location = New System.Drawing.Point(278, 266)
+        Me.lblMultiplePollutants.Name = "lblMultiplePollutants"
+        Me.lblMultiplePollutants.Size = New System.Drawing.Size(51, 13)
+        Me.lblMultiplePollutants.TabIndex = 45
+        Me.lblMultiplePollutants.Text = "Pollutant:"
+        '
+        'lblStatistic
+        '
+        Me.lblStatistic.AutoSize = True
+        Me.lblStatistic.Location = New System.Drawing.Point(23, 276)
+        Me.lblStatistic.Name = "lblStatistic"
+        Me.lblStatistic.Size = New System.Drawing.Size(47, 13)
+        Me.lblStatistic.TabIndex = 46
+        Me.lblStatistic.Text = "Statistic:"
+        '
+        'ucrReceiverSinglePollutantPolarFreq
+        '
+        Me.ucrReceiverSinglePollutantPolarFreq.frmParent = Me
+        Me.ucrReceiverSinglePollutantPolarFreq.Location = New System.Drawing.Point(282, 282)
+        Me.ucrReceiverSinglePollutantPolarFreq.Margin = New System.Windows.Forms.Padding(0)
+        Me.ucrReceiverSinglePollutantPolarFreq.Name = "ucrReceiverSinglePollutantPolarFreq"
+        Me.ucrReceiverSinglePollutantPolarFreq.Selector = Nothing
+        Me.ucrReceiverSinglePollutantPolarFreq.Size = New System.Drawing.Size(120, 20)
+        Me.ucrReceiverSinglePollutantPolarFreq.strNcFilePath = ""
+        Me.ucrReceiverSinglePollutantPolarFreq.TabIndex = 47
+        Me.ucrReceiverSinglePollutantPolarFreq.ucrSelector = Nothing
+        '
+        'lblPollutantPolarFreq
+        '
+        Me.lblPollutantPolarFreq.AutoSize = True
+        Me.lblPollutantPolarFreq.Location = New System.Drawing.Point(278, 266)
+        Me.lblPollutantPolarFreq.Name = "lblPollutantPolarFreq"
+        Me.lblPollutantPolarFreq.Size = New System.Drawing.Size(51, 13)
+        Me.lblPollutantPolarFreq.TabIndex = 48
+        Me.lblPollutantPolarFreq.Text = "Pollutant:"
+        '
+        'ucrInputStatisticPolarFreq
+        '
+        Me.ucrInputStatisticPolarFreq.AddQuotesIfUnrecognised = True
+        Me.ucrInputStatisticPolarFreq.GetSetSelectedIndex = -1
+        Me.ucrInputStatisticPolarFreq.IsReadOnly = False
+        Me.ucrInputStatisticPolarFreq.Location = New System.Drawing.Point(83, 271)
+        Me.ucrInputStatisticPolarFreq.Name = "ucrInputStatisticPolarFreq"
+        Me.ucrInputStatisticPolarFreq.Size = New System.Drawing.Size(97, 21)
+        Me.ucrInputStatisticPolarFreq.TabIndex = 49
+        '
+        'lblStatisticPolarFreq
+        '
+        Me.lblStatisticPolarFreq.AutoSize = True
+        Me.lblStatisticPolarFreq.Location = New System.Drawing.Point(23, 277)
+        Me.lblStatisticPolarFreq.Name = "lblStatisticPolarFreq"
+        Me.lblStatisticPolarFreq.Size = New System.Drawing.Size(47, 13)
+        Me.lblStatisticPolarFreq.TabIndex = 50
+        Me.lblStatisticPolarFreq.Text = "Statistic:"
         '
         'dlgOtherRosePlots
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(416, 485)
+        Me.ClientSize = New System.Drawing.Size(634, 485)
+        Me.Controls.Add(Me.ucrInputStatisticPolarFreq)
+        Me.Controls.Add(Me.lblPollutantPolarFreq)
+        Me.Controls.Add(Me.ucrReceiverSinglePollutantPolarFreq)
+        Me.Controls.Add(Me.lblMultiplePollutants)
+        Me.Controls.Add(Me.ucrchkExcludeMissing)
+        Me.Controls.Add(Me.ucrChkPadDate)
+        Me.Controls.Add(Me.ucrChkForcePositive)
+        Me.Controls.Add(Me.lblPercentile)
+        Me.Controls.Add(Me.ucrNudPercentile)
+        Me.Controls.Add(Me.ucrInputSmooth)
+        Me.Controls.Add(Me.lblSmooth)
+        Me.Controls.Add(Me.lblNoOfClusters)
+        Me.Controls.Add(Me.ucrNumberOfClusters)
+        Me.Controls.Add(Me.ucrChkNormalise)
+        Me.Controls.Add(Me.ucrChkMultiplePollutants)
+        Me.Controls.Add(Me.ucrInputMethod)
+        Me.Controls.Add(Me.lblVariableToPlotAgainstCluster)
+        Me.Controls.Add(Me.ucrReceiverX)
         Me.Controls.Add(Me.ucrChkIncludePollutant)
         Me.Controls.Add(Me.ucrChkTransform)
         Me.Controls.Add(Me.ucrSaveGraph)
@@ -349,17 +590,20 @@ Partial Class dlgOtherRosePlots
         Me.Controls.Add(Me.ucrInputColor)
         Me.Controls.Add(Me.lblType)
         Me.Controls.Add(Me.lblColor)
-        Me.Controls.Add(Me.lblMethod)
-        Me.Controls.Add(Me.lblPollutant)
+        Me.Controls.Add(Me.lblSinglePollutant)
         Me.Controls.Add(Me.lblWindDirection)
         Me.Controls.Add(Me.lblDate)
         Me.Controls.Add(Me.lblWindSpeed)
         Me.Controls.Add(Me.ucrReceiverWindSpeed)
         Me.Controls.Add(Me.UcrReceiverDate)
         Me.Controls.Add(Me.ucrReceiverWindDirection)
-        Me.Controls.Add(Me.ucrReceiverPollutant)
+        Me.Controls.Add(Me.ucrReceiverSinglePollutant)
         Me.Controls.Add(Me.ucrSelectorOtherRosePlots)
         Me.Controls.Add(Me.ucrBase)
+        Me.Controls.Add(Me.ucrReceiverMultiplePollutants)
+        Me.Controls.Add(Me.lblStatisticPolarFreq)
+        Me.Controls.Add(Me.lblStatistic)
+        Me.Controls.Add(Me.lblMethod)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.MaximizeBox = False
         Me.MinimizeBox = False
@@ -373,14 +617,14 @@ Partial Class dlgOtherRosePlots
 
     Friend WithEvents ucrBase As ucrButtons
     Friend WithEvents ucrSelectorOtherRosePlots As ucrSelectorByDataFrameAddRemove
-    Friend WithEvents ucrReceiverPollutant As ucrReceiverSingle
+    Friend WithEvents ucrReceiverSinglePollutant As ucrReceiverSingle
     Friend WithEvents ucrInputType As ucrInputComboBox
     Friend WithEvents ucrInputStatistic As ucrInputComboBox
     Friend WithEvents ucrInputColor As ucrInputComboBox
     Friend WithEvents lblType As Label
     Friend WithEvents lblColor As Label
     Friend WithEvents lblMethod As Label
-    Friend WithEvents lblPollutant As Label
+    Friend WithEvents lblSinglePollutant As Label
     Friend WithEvents lblWindDirection As Label
     Friend WithEvents lblDate As Label
     Friend WithEvents lblWindSpeed As Label
@@ -396,4 +640,25 @@ Partial Class dlgOtherRosePlots
     Friend WithEvents ucrSaveGraph As ucrSave
     Friend WithEvents ucrChkTransform As ucrCheck
     Friend WithEvents ucrChkIncludePollutant As ucrCheck
+    Friend WithEvents lblVariableToPlotAgainstCluster As Label
+    Friend WithEvents ucrReceiverX As ucrReceiverSingle
+    Friend WithEvents ucrReceiverMultiplePollutants As ucrReceiverMultiple
+    Friend WithEvents ucrInputMethod As ucrInputComboBox
+    Friend WithEvents ucrChkMultiplePollutants As ucrCheck
+    Friend WithEvents ucrChkNormalise As ucrCheck
+    Friend WithEvents lblNoOfClusters As Label
+    Friend WithEvents ucrNumberOfClusters As ucrNud
+    Friend WithEvents lblPercentile As Label
+    Friend WithEvents ucrNudPercentile As ucrNud
+    Friend WithEvents ucrInputSmooth As ucrInputComboBox
+    Friend WithEvents lblSmooth As Label
+    Friend WithEvents ucrchkExcludeMissing As ucrCheck
+    Friend WithEvents ucrChkPadDate As ucrCheck
+    Friend WithEvents ucrChkForcePositive As ucrCheck
+    Friend WithEvents lblMultiplePollutants As Label
+    Friend WithEvents lblStatistic As Label
+    Friend WithEvents lblPollutantPolarFreq As Label
+    Friend WithEvents ucrReceiverSinglePollutantPolarFreq As ucrReceiverSingle
+    Friend WithEvents lblStatisticPolarFreq As Label
+    Friend WithEvents ucrInputStatisticPolarFreq As ucrInputComboBox
 End Class

@@ -73,9 +73,56 @@ Public Class dlgOtherRosePlots
         ucrReceiverWindSpeed.Selector = ucrSelectorOtherRosePlots
         ucrReceiverWindSpeed.SetParameterIsString()
 
-        ucrReceiverPollutant.SetParameter(New RParameter("pollutant", 4))
-        ucrReceiverPollutant.Selector = ucrSelectorOtherRosePlots
-        ucrReceiverPollutant.SetParameterIsString()
+        ucrReceiverX.SetParameter(New RParameter("x", 3))
+        ucrReceiverX.Selector = ucrSelectorOtherRosePlots
+        ucrReceiverX.SetParameterIsString()
+        'ucrReceiverXCluster.SetClimaticType("wind_speed")
+        'ucrReceiverXCluster.bAutoFill = True
+
+        ucrReceiverSinglePollutant.SetParameter(New RParameter("pollutant", 4))
+        ucrReceiverSinglePollutant.Selector = ucrSelectorOtherRosePlots
+        ucrReceiverSinglePollutant.SetParameterIsString()
+
+        ucrReceiverMultiplePollutants.SetParameter(New RParameter("pollutant", 4))
+        ucrReceiverMultiplePollutants.Selector = ucrSelectorOtherRosePlots
+        ucrReceiverMultiplePollutants.SetParameterIsString()
+
+        ucrReceiverSinglePollutantPolarFreq.SetParameter(New RParameter("pollutant", 4))
+        ucrReceiverSinglePollutantPolarFreq.Selector = ucrSelectorOtherRosePlots
+        ucrReceiverSinglePollutantPolarFreq.SetParameterIsString()
+
+        ucrPnlOptions.AddToLinkedControls({UcrReceiverDate, ucrReceiverWindDirection, ucrReceiverWindSpeed}, {rdoPercentileRose, rdoPolarFrequency, rdoPolarAnnulus, rdoPolarCluster, rdoPolarPlot}, bNewLinkedAddRemoveParameter:=True, bNewLinkedHideIfParameterMissing:=True)
+        ucrPnlOptions.AddToLinkedControls({ucrReceiverSinglePollutant}, {rdoPercentileRose, rdoPolarAnnulus, rdoPolarCluster, rdoPolarPlot}, bNewLinkedAddRemoveParameter:=True, bNewLinkedHideIfParameterMissing:=True)
+        ucrPnlOptions.AddToLinkedControls({ucrReceiverSinglePollutantPolarFreq}, {rdoPolarFrequency}, bNewLinkedAddRemoveParameter:=True, bNewLinkedHideIfParameterMissing:=True)
+        ucrPnlOptions.AddToLinkedControls(ucrChkMultiplePollutants, {rdoPolarAnnulus, rdoPolarPlot}, bNewLinkedAddRemoveParameter:=True, bNewLinkedHideIfParameterMissing:=True)
+        'ucrPnlOptions.AddToLinkedControls(ucrReceiverWindDirection, {rdoPercentileRose, rdoPolarAnnulus, rdoPolarCluster, rdoPolarFrequency, rdoPolarPlot}, bNewLinkedAddRemoveParameter:=True, bNewLinkedHideIfParameterMissing:=True)
+        'ucrPnlOptions.AddToLinkedControls(ucrReceiverWindSpeed, {rdoPercentileRose, rdoPolarFrequency}, bNewLinkedAddRemoveParameter:=True, bNewLinkedHideIfParameterMissing:=True)
+        ucrPnlOptions.AddToLinkedControls(ucrReceiverX, {rdoPolarCluster, rdoPolarPlot}, bNewLinkedAddRemoveParameter:=True, bNewLinkedHideIfParameterMissing:=True)
+        ucrPnlOptions.AddToLinkedControls(ucrInputColor, {rdoPercentileRose, rdoPolarAnnulus, rdoPolarCluster, rdoPolarFrequency, rdoPolarPlot}, bNewLinkedAddRemoveParameter:=True, bNewLinkedHideIfParameterMissing:=True)
+        ucrPnlOptions.AddToLinkedControls(ucrInputType, {rdoPercentileRose, rdoPolarAnnulus, rdoPolarFrequency, rdoPolarPlot}, bNewLinkedAddRemoveParameter:=True, bNewLinkedHideIfParameterMissing:=True)
+        ucrPnlOptions.AddToLinkedControls(ucrInputStatistic, {rdoPolarAnnulus, rdoPolarPlot}, bNewLinkedAddRemoveParameter:=True, bNewLinkedHideIfParameterMissing:=True)
+        ucrPnlOptions.AddToLinkedControls(ucrInputStatisticPolarFreq, {rdoPolarFrequency}, bNewLinkedAddRemoveParameter:=True, bNewLinkedHideIfParameterMissing:=True)
+        ucrPnlOptions.AddToLinkedControls(ucrChkForcePositive, {rdoPolarPlot}, bNewLinkedAddRemoveParameter:=True, bNewLinkedHideIfParameterMissing:=True)
+        ucrPnlOptions.AddToLinkedControls({ucrchkExcludeMissing, ucrChkPadDate}, {rdoPolarAnnulus}, bNewLinkedAddRemoveParameter:=True, bNewLinkedHideIfParameterMissing:=True)
+        ucrPnlOptions.AddToLinkedControls({ucrChkMultiplePollutants, ucrChkNormalise}, {rdoPolarAnnulus, rdoPolarPlot}, bNewLinkedAddRemoveParameter:=True, bNewLinkedHideIfParameterMissing:=True)
+        ucrPnlOptions.AddToLinkedControls({ucrChkIncludePollutant, ucrChkTransform}, {rdoPolarFrequency}, bNewLinkedAddRemoveParameter:=True, bNewLinkedHideIfParameterMissing:=True)
+        ucrPnlOptions.AddToLinkedControls({ucrNudPercentile, ucrInputMethod, ucrInputSmooth}, {rdoPercentileRose}, bNewLinkedAddRemoveParameter:=True, bNewLinkedHideIfParameterMissing:=True)
+        ucrPnlOptions.AddToLinkedControls(ucrNumberOfClusters, {rdoPolarCluster}, bNewLinkedAddRemoveParameter:=True, bNewLinkedHideIfParameterMissing:=True)
+        UcrReceiverDate.SetLinkedDisplayControl(lblDate)
+        ucrReceiverSinglePollutant.SetLinkedDisplayControl(lblSinglePollutant)
+        ucrReceiverSinglePollutantPolarFreq.SetLinkedDisplayControl(lblPollutantPolarFreq)
+        ucrReceiverMultiplePollutants.SetLinkedDisplayControl(lblMultiplePollutants)
+        ucrReceiverWindDirection.SetLinkedDisplayControl(lblWindDirection)
+        ucrReceiverWindSpeed.SetLinkedDisplayControl(lblWindSpeed)
+        ucrReceiverX.SetLinkedDisplayControl(lblVariableToPlotAgainstCluster)
+        ucrInputColor.SetLinkedDisplayControl(lblColor)
+        ucrInputType.SetLinkedDisplayControl(lblType)
+        ucrInputStatistic.SetLinkedDisplayControl(lblStatistic)
+        ucrInputStatisticPolarFreq.SetLinkedDisplayControl(lblStatisticPolarFreq)
+        ucrNudPercentile.SetLinkedDisplayControl(lblPercentile)
+        ucrInputMethod.SetLinkedDisplayControl(lblMethod)
+        ucrInputSmooth.SetLinkedDisplayControl(lblSmooth)
+        ucrNumberOfClusters.SetLinkedDisplayControl(lblNoOfClusters)
 
         ucrChkTransform.SetText("Transform")
         ucrChkTransform.SetParameter(New RParameter("trans", 5))
@@ -114,12 +161,36 @@ Public Class dlgOtherRosePlots
         ucrInputColor.SetDropDownStyleAsNonEditable()
 
         ucrChkIncludePollutant.AddParameterPresentCondition("True", "statistic", "True")
-
         ucrChkIncludePollutant.SetText("Include Pollutant")
-        ucrChkIncludePollutant.AddToLinkedControls(ucrReceiverPollutant, {True}, bNewLinkedAddRemoveParameter:=True, bNewLinkedHideIfParameterMissing:=True)
-        ucrReceiverPollutant.SetLinkedDisplayControl(lblPollutant)
-        ucrChkIncludePollutant.AddToLinkedControls(ucrInputStatistic, {True}, bNewLinkedAddRemoveParameter:=True, bNewLinkedHideIfParameterMissing:=True, bNewLinkedChangeToDefaultState:=True, objNewDefaultState:="frequency")
-        ucrInputStatistic.SetLinkedDisplayControl(lblMethod)
+        ucrChkIncludePollutant.AddToLinkedControls(ucrReceiverSinglePollutantPolarFreq, {True}, bNewLinkedAddRemoveParameter:=True, bNewLinkedHideIfParameterMissing:=True)
+        ucrReceiverSinglePollutantPolarFreq.SetLinkedDisplayControl(lblPollutantPolarFreq)
+        ucrChkIncludePollutant.AddToLinkedControls(ucrInputStatisticPolarFreq, {True}, bNewLinkedAddRemoveParameter:=True, bNewLinkedHideIfParameterMissing:=True, bNewLinkedChangeToDefaultState:=True, objNewDefaultState:="frequency")
+        ucrInputStatisticPolarFreq.SetLinkedDisplayControl(lblStatisticPolarFreq)
+
+        ucrNumberOfClusters.SetParameter(New RParameter("n.clusters", 9))
+        ucrNumberOfClusters.Minimum = 1
+
+        ucrchkExcludeMissing.SetText("Exclude Missing")
+        ucrchkExcludeMissing.SetParameter(New RParameter("exclude.missing", 10))
+        ucrchkExcludeMissing.SetValuesCheckedAndUnchecked("TRUE", "FALSE")
+
+        ucrChkPadDate.SetText("Pad Date")
+        ucrChkPadDate.SetParameter(New RParameter("date.pad", 11))
+        ucrChkPadDate.SetValuesCheckedAndUnchecked("TRUE", "FALSE")
+
+        ucrChkNormalise.SetText("Normalise")
+        ucrChkNormalise.SetParameter(New RParameter("normalise", 12))
+
+        ucrChkMultiplePollutants.SetText("Multiple Pollutants")
+        ucrChkMultiplePollutants.AddToLinkedControls(ucrReceiverMultiplePollutants, {True}, bNewLinkedAddRemoveParameter:=True, bNewLinkedHideIfParameterMissing:=True)
+        ucrReceiverMultiplePollutants.SetLinkedDisplayControl(lblMultiplePollutants)
+        ucrChkMultiplePollutants.AddToLinkedControls(ucrReceiverSinglePollutant, {False}, bNewLinkedAddRemoveParameter:=True, bNewLinkedHideIfParameterMissing:=True)
+        ucrReceiverSinglePollutant.SetLinkedDisplayControl(lblSinglePollutant)
+        ucrChkMultiplePollutants.AddToLinkedControls(ucrChkNormalise, {True}, bNewLinkedAddRemoveParameter:=True, bNewLinkedHideIfParameterMissing:=True)
+
+        ucrChkForcePositive.SetText("Force positive")
+        ucrChkForcePositive.SetParameter(New RParameter("force.positive", 13))
+        ucrChkForcePositive.SetValuesCheckedAndUnchecked("TRUE", "FALSE")
 
         ucrSaveGraph.SetPrefix("OtherRosePlots")
         ucrSaveGraph.SetIsComboBox()
@@ -132,9 +203,8 @@ Public Class dlgOtherRosePlots
     Private Sub SetDefaults()
         clsOtherRosePlots = New RFunction
 
-        clsOtherRosePlots.AddParameter("type", Chr(34) & "year" & Chr(34), iPosition:=6)
-        clsOtherRosePlots.AddParameter("statistic", Chr(34) & "" & Chr(34), iPosition:=7)
-        clsOtherRosePlots.AddParameter("cols", Chr(34) & "heat" & Chr(34), iPosition:=8)
+        clsOtherRosePlots.AddParameter("type", Chr(34) & "default" & Chr(34), iPosition:=6)
+        clsOtherRosePlots.AddParameter("cols", Chr(34) & "default" & Chr(34), iPosition:=8)
 
         ucrSelectorOtherRosePlots.Reset()
         UcrReceiverDate.SetMeAsReceiver()
@@ -165,11 +235,16 @@ Public Class dlgOtherRosePlots
     Private Sub SetDialogOptions()
         If rdoPolarAnnulus.Checked Then
             clsOtherRosePlots.AddParameter("mymethod", Chr(34) & "polar_annulus" & Chr(34), iPosition:=16)
+            'clsOtherRosePlots.AddParameter("normalise", "FALSE", iPosition:=12)
+            clsOtherRosePlots.AddParameter("date.pad", "FALSE", iPosition:=12)
+            clsOtherRosePlots.AddParameter("statistic", Chr(34) & "mean" & Chr(34), iPosition:=7)
 
             If Not ucrSaveGraph.bUserTyped Then
                 ucrSaveGraph.SetPrefix("Polar_Annulus")
             End If
         ElseIf rdoPolarCluster.Checked Then
+            clsOtherRosePlots.AddParameter("normalise", "TRUE", iPosition:=12)
+            clsOtherRosePlots.AddParameter("force.positive", "TRUE", iPosition:=13)
             clsOtherRosePlots.AddParameter("mymethod", Chr(34) & "polar_cluster" & Chr(34), iPosition:=16)
 
             If Not ucrSaveGraph.bUserTyped Then
