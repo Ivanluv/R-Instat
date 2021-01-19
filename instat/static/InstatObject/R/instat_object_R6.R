@@ -657,7 +657,7 @@ DataBook$set("public", "get_from_model", function(data_name, model_name, value1,
 }
 )
 
-DataBook$set("public", "add_graph", function(data_name, graph, graph_name) {
+DataBook$set("public", "add_graph", function(data_name, graph, graph_name, save_in_databook) {
   self$add_object(data_name = data_name, object = graph, object_name = graph_name)
   last_graph_name <- self$get_data_objects(data_name)$get_last_graph_name()
   if(!is.null(last_graph_name)) private$.last_graph <- c(data_name, last_graph_name)

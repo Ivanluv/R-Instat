@@ -1725,6 +1725,87 @@
   <data name="&gt;&gt;tbpWorkingDirectory.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
+  <data name="rdoSaveInEnvironment.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="rdoSaveInEnvironment.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="rdoSaveInEnvironment.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 122</value>
+  </data>
+  <data name="rdoSaveInEnvironment.Size" type="System.Drawing.Size, System.Drawing">
+    <value>123, 17</value>
+  </data>
+  <data name="rdoSaveInEnvironment.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="rdoSaveInEnvironment.Text" xml:space="preserve">
+    <value>Save in Environment</value>
+  </data>
+  <data name="&gt;&gt;rdoSaveInEnvironment.Name" xml:space="preserve">
+    <value>rdoSaveInEnvironment</value>
+  </data>
+  <data name="&gt;&gt;rdoSaveInEnvironment.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;rdoSaveInEnvironment.Parent" xml:space="preserve">
+    <value>tbpGraphDisplay</value>
+  </data>
+  <data name="&gt;&gt;rdoSaveInEnvironment.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="rdoSaveInDatabook.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="rdoSaveInDatabook.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="rdoSaveInDatabook.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 99</value>
+  </data>
+  <data name="rdoSaveInDatabook.Size" type="System.Drawing.Size, System.Drawing">
+    <value>113, 17</value>
+  </data>
+  <data name="rdoSaveInDatabook.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="rdoSaveInDatabook.Text" xml:space="preserve">
+    <value>Save In DataBook</value>
+  </data>
+  <data name="&gt;&gt;rdoSaveInDatabook.Name" xml:space="preserve">
+    <value>rdoSaveInDatabook</value>
+  </data>
+  <data name="&gt;&gt;rdoSaveInDatabook.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;rdoSaveInDatabook.Parent" xml:space="preserve">
+    <value>tbpGraphDisplay</value>
+  </data>
+  <data name="&gt;&gt;rdoSaveInDatabook.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="ucrPnlSaveGraph.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 92</value>
+  </data>
+  <data name="ucrPnlSaveGraph.Size" type="System.Drawing.Size, System.Drawing">
+    <value>187, 54</value>
+  </data>
+  <data name="ucrPnlSaveGraph.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;ucrPnlSaveGraph.Name" xml:space="preserve">
+    <value>ucrPnlSaveGraph</value>
+  </data>
+  <data name="&gt;&gt;ucrPnlSaveGraph.Type" xml:space="preserve">
+    <value>instat.UcrPanel, instat, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;ucrPnlSaveGraph.Parent" xml:space="preserve">
+    <value>tbpGraphDisplay</value>
+  </data>
+  <data name="&gt;&gt;ucrPnlSaveGraph.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
   <data name="rdoDisplayinSeparateWindows.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -1750,7 +1831,7 @@
     <value>tbpGraphDisplay</value>
   </data>
   <data name="&gt;&gt;rdoDisplayinSeparateWindows.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>3</value>
   </data>
   <data name="rdoDisplayinRViewer.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1777,7 +1858,7 @@
     <value>tbpGraphDisplay</value>
   </data>
   <data name="&gt;&gt;rdoDisplayinRViewer.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>4</value>
   </data>
   <data name="rdoDisplayinOutputWindow.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1804,7 +1885,7 @@
     <value>tbpGraphDisplay</value>
   </data>
   <data name="&gt;&gt;rdoDisplayinOutputWindow.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>5</value>
   </data>
   <data name="ucrPnlGraphDisplay.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 3</value>
@@ -1825,7 +1906,7 @@
     <value>tbpGraphDisplay</value>
   </data>
   <data name="&gt;&gt;ucrPnlGraphDisplay.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>6</value>
   </data>
   <data name="tbpGraphDisplay.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 22</value>
@@ -1840,7 +1921,7 @@
     <value>12</value>
   </data>
   <data name="tbpGraphDisplay.Text" xml:space="preserve">
-    <value>Graph Display</value>
+    <value>Graphics</value>
   </data>
   <data name="&gt;&gt;tbpGraphDisplay.Name" xml:space="preserve">
     <value>tbpGraphDisplay</value>

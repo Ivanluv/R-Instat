@@ -38,6 +38,7 @@ Imports RDotNet
     Public bShowProcurementMenu As Nullable(Of Boolean)
     Public bShowClimaticMenu As Nullable(Of Boolean)
     Public bShowOptionsByContextMenu As Nullable(Of Boolean)
+    Public bSaveGraphInDatabook As Nullable(Of Integer)
     Public iDigits As Nullable(Of Integer)
     Public bShowSignifStars As Nullable(Of Boolean)
     Public bChangeDataFrame As Nullable(Of Boolean)
@@ -59,6 +60,7 @@ Imports RDotNet
         bShowClimaticMenu = clsInstatOptionsDefaults.DEFAULTbShowClimaticMenu
         bShowProcurementMenu = clsInstatOptionsDefaults.DEFAULTbShowProcurementMenu
         bShowOptionsByContextMenu = clsInstatOptionsDefaults.DEFAULTbShowOptionsByContextMenu
+        bSaveGraphInDatabook = clsInstatOptionsDefaults.DEFAULTbSaveGraphInDatabook
         fntOutput = clsInstatOptionsDefaults.DEFAULTfntOutput
         clrOutput = clsInstatOptionsDefaults.DEFAULTclrOutput
         fntComment = clsInstatOptionsDefaults.DEFAULTfntComment
@@ -211,6 +213,12 @@ Imports RDotNet
             SetIncludeRDefaultParameters(bIncludeRDefaultParameters)
         Else
             SetIncludeRDefaultParameters(clsInstatOptionsDefaults.DEFAULTbIncludeRDefaultParameters)
+        End If
+
+        If bSaveGraphInDatabook.HasValue Then
+            SetSaveGraphInDatabook(bSaveGraphInDatabook)
+        Else
+            SetSaveGraphInDatabook(clsInstatOptionsDefaults.DEFAULTbSaveGraphInDatabook)
         End If
 
         If lstColourPalette IsNot Nothing Then
@@ -415,6 +423,9 @@ Imports RDotNet
         frmMain.SetShowProcurementMenu(bNewShowProcurementMenu)
     End Sub
 
+    Public Sub SetSaveGraphInDatabook(bNewSaveGraphInDataBook As Boolean)
+        bSaveGraphInDatabook = bNewSaveGraphInDataBook
+    End Sub
     Public Sub SetShowClimaticMenu(bNewShowClimaticMenu As Boolean)
         bShowClimaticMenu = bNewShowClimaticMenu
         frmMain.SetShowClimaticMenu(bNewShowClimaticMenu)

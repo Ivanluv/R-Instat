@@ -113,14 +113,17 @@ Partial Class dlgOptions
         Me.ucrChkViewProcurementMenu = New instat.ucrCheck()
         Me.ucrChkViewClimaticMenu = New instat.ucrCheck()
         Me.tbpClimsoft = New System.Windows.Forms.TabPage()
-        Me.ucrInputUserName = New instat.ucrInputTextBox()
-        Me.ucrInputPort = New instat.ucrInputTextBox()
-        Me.ucrInputHost = New instat.ucrInputTextBox()
-        Me.ucrInputDatabaseName = New instat.ucrInputTextBox()
         Me.lblUserName = New System.Windows.Forms.Label()
         Me.lblPort = New System.Windows.Forms.Label()
         Me.lblHost = New System.Windows.Forms.Label()
         Me.lblDatabaseName = New System.Windows.Forms.Label()
+        Me.ucrInputUserName = New instat.ucrInputTextBox()
+        Me.ucrInputPort = New instat.ucrInputTextBox()
+        Me.ucrInputHost = New instat.ucrInputTextBox()
+        Me.ucrInputDatabaseName = New instat.ucrInputTextBox()
+        Me.ucrPnlSaveGraph = New instat.UcrPanel()
+        Me.rdoSaveInDatabook = New System.Windows.Forms.RadioButton()
+        Me.rdoSaveInEnvironment = New System.Windows.Forms.RadioButton()
         CType(Me.spltControls, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.spltControls.Panel1.SuspendLayout()
         Me.spltControls.Panel2.SuspendLayout()
@@ -620,6 +623,9 @@ Partial Class dlgOptions
         '
         'tbpGraphDisplay
         '
+        Me.tbpGraphDisplay.Controls.Add(Me.rdoSaveInEnvironment)
+        Me.tbpGraphDisplay.Controls.Add(Me.rdoSaveInDatabook)
+        Me.tbpGraphDisplay.Controls.Add(Me.ucrPnlSaveGraph)
         Me.tbpGraphDisplay.Controls.Add(Me.rdoDisplayinSeparateWindows)
         Me.tbpGraphDisplay.Controls.Add(Me.rdoDisplayinRViewer)
         Me.tbpGraphDisplay.Controls.Add(Me.rdoDisplayinOutputWindow)
@@ -694,6 +700,26 @@ Partial Class dlgOptions
         Me.tbpClimsoft.Name = "tbpClimsoft"
         Me.tbpClimsoft.UseVisualStyleBackColor = True
         '
+        'lblUserName
+        '
+        resources.ApplyResources(Me.lblUserName, "lblUserName")
+        Me.lblUserName.Name = "lblUserName"
+        '
+        'lblPort
+        '
+        resources.ApplyResources(Me.lblPort, "lblPort")
+        Me.lblPort.Name = "lblPort"
+        '
+        'lblHost
+        '
+        resources.ApplyResources(Me.lblHost, "lblHost")
+        Me.lblHost.Name = "lblHost"
+        '
+        'lblDatabaseName
+        '
+        resources.ApplyResources(Me.lblDatabaseName, "lblDatabaseName")
+        Me.lblDatabaseName.Name = "lblDatabaseName"
+        '
         'ucrInputUserName
         '
         Me.ucrInputUserName.AddQuotesIfUnrecognised = True
@@ -726,25 +752,22 @@ Partial Class dlgOptions
         resources.ApplyResources(Me.ucrInputDatabaseName, "ucrInputDatabaseName")
         Me.ucrInputDatabaseName.Name = "ucrInputDatabaseName"
         '
-        'lblUserName
+        'ucrPnlSaveGraph
         '
-        resources.ApplyResources(Me.lblUserName, "lblUserName")
-        Me.lblUserName.Name = "lblUserName"
+        resources.ApplyResources(Me.ucrPnlSaveGraph, "ucrPnlSaveGraph")
+        Me.ucrPnlSaveGraph.Name = "ucrPnlSaveGraph"
         '
-        'lblPort
+        'rdoSaveInDatabook
         '
-        resources.ApplyResources(Me.lblPort, "lblPort")
-        Me.lblPort.Name = "lblPort"
+        resources.ApplyResources(Me.rdoSaveInDatabook, "rdoSaveInDatabook")
+        Me.rdoSaveInDatabook.Name = "rdoSaveInDatabook"
+        Me.rdoSaveInDatabook.UseVisualStyleBackColor = True
         '
-        'lblHost
+        'rdoSaveInEnvironment
         '
-        resources.ApplyResources(Me.lblHost, "lblHost")
-        Me.lblHost.Name = "lblHost"
-        '
-        'lblDatabaseName
-        '
-        resources.ApplyResources(Me.lblDatabaseName, "lblDatabaseName")
-        Me.lblDatabaseName.Name = "lblDatabaseName"
+        resources.ApplyResources(Me.rdoSaveInEnvironment, "rdoSaveInEnvironment")
+        Me.rdoSaveInEnvironment.Name = "rdoSaveInEnvironment"
+        Me.rdoSaveInEnvironment.UseVisualStyleBackColor = True
         '
         'dlgOptions
         '
@@ -883,4 +906,7 @@ Partial Class dlgOptions
     Friend WithEvents lblPort As Label
     Friend WithEvents lblHost As Label
     Friend WithEvents lblDatabaseName As Label
+    Friend WithEvents rdoSaveInEnvironment As RadioButton
+    Friend WithEvents rdoSaveInDatabook As RadioButton
+    Friend WithEvents ucrPnlSaveGraph As UcrPanel
 End Class

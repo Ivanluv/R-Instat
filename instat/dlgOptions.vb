@@ -89,6 +89,8 @@ Public Class dlgOptions
         ucrPnlLanguage.AddRadioButton(rdoEnglish)
         ucrPnlLanguage.AddRadioButton(rdoSpanish)
         ucrPnlLanguage.AddRadioButton(rdoFrench)
+        ucrPnlSaveGraph.AddRadioButton(rdoSaveInDatabook)
+        ucrPnlSaveGraph.AddRadioButton(rdoSaveInEnvironment)
     End Sub
 
     Private Sub LoadInstatOptions()

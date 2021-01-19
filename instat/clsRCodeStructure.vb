@@ -444,6 +444,7 @@ Public Class RCodeStructure
                 clsAddGraphs.SetRCommand(frmMain.clsRLink.strInstatDataObject & "$add_graph")
                 clsAddGraphs.AddParameter("graph_name", Chr(34) & strAssignToGraph & Chr(34))
                 clsAddGraphs.AddParameter("graph", strAssignTo)
+                clsAddGraphs.AddParameter("save_in_databook", frmMain.clsInstatOptions.bSaveGraphInDatabook)
                 If Not strAssignToDataFrame = "" Then
                     clsAddGraphs.AddParameter("data_name", Chr(34) & strAssignToDataFrame & Chr(34))
                     clsGetGraphs.AddParameter("data_name", Chr(34) & strAssignToDataFrame & Chr(34))

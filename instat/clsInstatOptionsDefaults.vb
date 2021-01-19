@@ -52,4 +52,5 @@ Public Class clsInstatOptionsDefaults
     Public Shared ReadOnly DEFAULTstrClimsoftHost As String = "127.0.0.1"
     Public Shared ReadOnly DEFAULTstrClimsoftPort As String = "3308"
     Public Shared ReadOnly DEFAULTstrClimsoftUsername As String = "root"
+    Public Shared ReadOnly DEFAULTbSaveGraphInDatabook As Boolean = False
 End Class
