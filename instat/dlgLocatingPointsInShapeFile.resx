@@ -117,15 +117,105 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="&gt;&gt;lblShapeFilePolygon.Name" xml:space="preserve">
+    <value>lblShapeFilePolygon</value>
+  </data>
+  <data name="&gt;&gt;lblShapeFilePolygon.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblShapeFilePolygon.Parent" xml:space="preserve">
+    <value>grpShapeaFile</value>
+  </data>
+  <data name="&gt;&gt;lblShapeFilePolygon.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;ucrReceiverShapeFilePolygon.Name" xml:space="preserve">
+    <value>ucrReceiverShapeFilePolygon</value>
+  </data>
+  <data name="&gt;&gt;ucrReceiverShapeFilePolygon.Type" xml:space="preserve">
+    <value>instat.ucrReceiverSingle, instat, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;ucrReceiverShapeFilePolygon.Parent" xml:space="preserve">
+    <value>grpShapeaFile</value>
+  </data>
+  <data name="&gt;&gt;ucrReceiverShapeFilePolygon.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;lblGeometry.Name" xml:space="preserve">
+    <value>lblGeometry</value>
+  </data>
+  <data name="&gt;&gt;lblGeometry.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblGeometry.Parent" xml:space="preserve">
+    <value>grpShapeaFile</value>
+  </data>
+  <data name="&gt;&gt;lblGeometry.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="grpShapeaFile.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 206</value>
+  </data>
+  <data name="grpShapeaFile.Size" type="System.Drawing.Size, System.Drawing">
+    <value>397, 213</value>
+  </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="lblGeometry.AutoSize" type="System.Boolean, mscorlib">
+  <data name="grpShapeaFile.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="grpShapeaFile.Text" xml:space="preserve">
+    <value>Shape File</value>
+  </data>
+  <data name="&gt;&gt;grpShapeaFile.Name" xml:space="preserve">
+    <value>grpShapeaFile</value>
+  </data>
+  <data name="&gt;&gt;grpShapeaFile.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;grpShapeaFile.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;grpShapeaFile.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="lblShapeFilePolygon.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="lblShapeFilePolygon.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblShapeFilePolygon.Location" type="System.Drawing.Point, System.Drawing">
+    <value>245, 102</value>
+  </data>
+  <data name="lblShapeFilePolygon.Size" type="System.Drawing.Size, System.Drawing">
+    <value>96, 13</value>
+  </data>
+  <data name="lblShapeFilePolygon.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="lblShapeFilePolygon.Text" xml:space="preserve">
+    <value>Polygon (Optional):</value>
+  </data>
+  <data name="&gt;&gt;lblShapeFilePolygon.Name" xml:space="preserve">
+    <value>lblShapeFilePolygon</value>
+  </data>
+  <data name="&gt;&gt;lblShapeFilePolygon.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblShapeFilePolygon.Parent" xml:space="preserve">
+    <value>grpShapeaFile</value>
+  </data>
+  <data name="&gt;&gt;lblShapeFilePolygon.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="lblGeometry.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
   <data name="lblGeometry.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="lblGeometry.Location" type="System.Drawing.Point, System.Drawing">
     <value>245, 42</value>
   </data>
@@ -148,31 +238,61 @@
     <value>grpShapeaFile</value>
   </data>
   <data name="&gt;&gt;lblGeometry.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="ucrReceiverStationFilePolygon.Location" type="System.Drawing.Point, System.Drawing">
+    <value>249, 162</value>
+  </data>
+  <data name="ucrReceiverStationFilePolygon.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="ucrReceiverStationFilePolygon.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 21</value>
+  </data>
+  <data name="ucrReceiverStationFilePolygon.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="grpShapeaFile.Location" type="System.Drawing.Point, System.Drawing">
-    <value>13, 206</value>
+  <data name="&gt;&gt;ucrReceiverStationFilePolygon.Name" xml:space="preserve">
+    <value>ucrReceiverStationFilePolygon</value>
   </data>
-  <data name="grpShapeaFile.Size" type="System.Drawing.Size, System.Drawing">
-    <value>397, 213</value>
+  <data name="&gt;&gt;ucrReceiverStationFilePolygon.Type" xml:space="preserve">
+    <value>instat.ucrReceiverSingle, instat, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="grpShapeaFile.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
+  <data name="&gt;&gt;ucrReceiverStationFilePolygon.Parent" xml:space="preserve">
+    <value>grpStationFile</value>
   </data>
-  <data name="grpShapeaFile.Text" xml:space="preserve">
-    <value>Shape File</value>
+  <data name="&gt;&gt;ucrReceiverStationFilePolygon.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
-  <data name="&gt;&gt;grpShapeaFile.Name" xml:space="preserve">
-    <value>grpShapeaFile</value>
+  <data name="lblStationFilePolygon.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
-  <data name="&gt;&gt;grpShapeaFile.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="lblStationFilePolygon.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
-  <data name="&gt;&gt;grpShapeaFile.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="lblStationFilePolygon.Location" type="System.Drawing.Point, System.Drawing">
+    <value>246, 141</value>
   </data>
-  <data name="&gt;&gt;grpShapeaFile.ZOrder" xml:space="preserve">
-    <value>4</value>
+  <data name="lblStationFilePolygon.Size" type="System.Drawing.Size, System.Drawing">
+    <value>96, 13</value>
+  </data>
+  <data name="lblStationFilePolygon.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="lblStationFilePolygon.Text" xml:space="preserve">
+    <value>Polygon (Optional):</value>
+  </data>
+  <data name="&gt;&gt;lblStationFilePolygon.Name" xml:space="preserve">
+    <value>lblStationFilePolygon</value>
+  </data>
+  <data name="&gt;&gt;lblStationFilePolygon.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblStationFilePolygon.Parent" xml:space="preserve">
+    <value>grpStationFile</value>
+  </data>
+  <data name="&gt;&gt;lblStationFilePolygon.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="lblLongitude.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -202,7 +322,7 @@
     <value>grpStationFile</value>
   </data>
   <data name="&gt;&gt;lblLongitude.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>2</value>
   </data>
   <data name="lblLatitude.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -211,7 +331,7 @@
     <value>NoControl</value>
   </data>
   <data name="lblLatitude.Location" type="System.Drawing.Point, System.Drawing">
-    <value>245, 104</value>
+    <value>245, 94</value>
   </data>
   <data name="lblLatitude.Size" type="System.Drawing.Size, System.Drawing">
     <value>48, 13</value>
@@ -232,7 +352,7 @@
     <value>grpStationFile</value>
   </data>
   <data name="&gt;&gt;lblLatitude.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>3</value>
   </data>
   <data name="grpStationFile.Location" type="System.Drawing.Point, System.Drawing">
     <value>13, 4</value>
@@ -265,7 +385,7 @@
     <value>130, 20</value>
   </data>
   <data name="ucrChkOmitMissing.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
+    <value>7</value>
   </data>
   <data name="&gt;&gt;ucrChkOmitMissing.Name" xml:space="preserve">
     <value>ucrChkOmitMissing</value>
@@ -286,7 +406,7 @@
     <value>410, 52</value>
   </data>
   <data name="ucrBase.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
+    <value>9</value>
   </data>
   <data name="&gt;&gt;ucrBase.Name" xml:space="preserve">
     <value>ucrBase</value>
@@ -307,7 +427,7 @@
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>430, 542</value>
+    <value>420, 540</value>
   </data>
   <data name="ucrSelectorShapeFile.Location" type="System.Drawing.Point, System.Drawing">
     <value>19, 223</value>
@@ -358,7 +478,7 @@
     <value>5</value>
   </data>
   <data name="ucrReceiverLatitude.Location" type="System.Drawing.Point, System.Drawing">
-    <value>261, 125</value>
+    <value>261, 116</value>
   </data>
   <data name="ucrReceiverLatitude.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
@@ -415,7 +535,7 @@
     <value>322, 26</value>
   </data>
   <data name="ucrSaveNewColumnName.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
+    <value>8</value>
   </data>
   <data name="&gt;&gt;ucrSaveNewColumnName.Name" xml:space="preserve">
     <value>ucrSaveNewColumnName</value>
@@ -428,9 +548,6 @@
   </data>
   <data name="&gt;&gt;ucrSaveNewColumnName.ZOrder" xml:space="preserve">
     <value>9</value>
-  </data>
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterScreen</value>
@@ -467,5 +584,29 @@
   </data>
   <data name="&gt;&gt;ucrReceiverGeometry.ZOrder" xml:space="preserve">
     <value>2</value>
+  </data>
+  <data name="ucrReceiverShapeFilePolygon.Location" type="System.Drawing.Point, System.Drawing">
+    <value>248, 122</value>
+  </data>
+  <data name="ucrReceiverShapeFilePolygon.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="ucrReceiverShapeFilePolygon.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 20</value>
+  </data>
+  <data name="ucrReceiverShapeFilePolygon.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;ucrReceiverShapeFilePolygon.Name" xml:space="preserve">
+    <value>ucrReceiverShapeFilePolygon</value>
+  </data>
+  <data name="&gt;&gt;ucrReceiverShapeFilePolygon.Type" xml:space="preserve">
+    <value>instat.ucrReceiverSingle, instat, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;ucrReceiverShapeFilePolygon.Parent" xml:space="preserve">
+    <value>grpShapeaFile</value>
+  </data>
+  <data name="&gt;&gt;ucrReceiverShapeFilePolygon.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
 </root>
