@@ -25,14 +25,10 @@ Public Class dlgLocatingPointsInShapeFile
     Private clsSubsetOperator As New ROperator
     Private clsStAsIntegerFunction As New RFunction
     Private clsExtractColumnStIntersectsFunction As New RFunction
-    'Private clsIsNAFunction As New RFunction
-    'Private clsIfElseFunction As New RFunction
     Private clsDollarOperator As New ROperator
-    Private clsOpeningSubsetOperator, clsIsEqualToOperator, clsCompareColumnsdollarOperator, clsClosingSubsetOperator As New ROperator
-    'Private clsDummyOperator As ROperator
+    Private clsOpeningSubsetOperator, clsIsEqualToOperator, clsEqualOpeningSubsetOperator, clsClosingSubsetOperator As New ROperator
 
     Private Sub dlgLocatingPointsInShapeFile_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        autoTranslate(Me)
         If bFirstLoad Then
             InitiliseDialog()
             bFirstLoad = False
@@ -44,11 +40,15 @@ Public Class dlgLocatingPointsInShapeFile
         SetRCodeForControls(bReset)
         bReset = False
         TestOKEnabled()
+        autoTranslate(Me)
     End Sub
 
     Private Sub InitiliseDialog()
         ucrSelectorStationFile.SetParameter(New RParameter("x", 0))
         ucrSelectorStationFile.SetParameterIsrfunction()
+
+        ucrSelectorShapeFile.SetParameter(New RParameter("y", 1))
+        ucrSelectorShapeFile.SetParameterIsrfunction()
 
         ucrReceiverLongitude.SetParameter(New RParameter("longitude", 0, bNewIncludeArgumentName:=False))
         ucrReceiverLongitude.Selector = ucrSelectorStationFile
@@ -78,23 +78,14 @@ Public Class dlgLocatingPointsInShapeFile
         ucrChkOmitMissing.SetValuesCheckedAndUnchecked("FALSE", "TRUE")
         ucrChkOmitMissing.SetRDefault("TRUE")
 
+        ttStationFile.SetToolTip(ucrReceiverStationFilePolygon.txtReceiverSingle, "Name of the country, county or ward, if available in the station file")
+        ttStationFile.SetToolTip(ucrReceiverShapeFilePolygon.txtReceiverSingle, "Name of the country, county or ward in the shapefile")
+
         ucrSaveNewColumnName.SetPrefix("location")
         ucrSaveNewColumnName.SetSaveTypeAsColumn()
         ucrSaveNewColumnName.SetDataFrameSelector(ucrSelectorStationFile.ucrAvailableDataFrames)
         ucrSaveNewColumnName.SetIsComboBox()
-        ucrSaveNewColumnName.SetLabelText("New Column Name")
-
-        'UcrSavePolygonName.SetPrefix("polygon")
-        'UcrSavePolygonName.SetSaveTypeAsColumn()
-        'UcrSavePolygonName.SetDataFrameSelector(ucrSelectorStationFile.ucrAvailableDataFrames)
-        'UcrSavePolygonName.SetIsComboBox()
-        'UcrSavePolygonName.SetLabelText("Polygon Name")
-
-        'UcrSaveLogicalPolygon.SetPrefix("polygon_logical")
-        'UcrSaveLogicalPolygon.SetSaveTypeAsColumn()
-        'UcrSaveLogicalPolygon.SetDataFrameSelector(ucrSelectorStationFile.ucrAvailableDataFrames)
-        'UcrSaveLogicalPolygon.SetIsComboBox()
-        'UcrSaveLogicalPolygon.SetLabelText("Logical Polygon")
+        ucrSaveNewColumnName.SetLabelText("New Column Name:")
     End Sub
 
     Private Sub SetDefaults()
@@ -102,16 +93,14 @@ Public Class dlgLocatingPointsInShapeFile
         clsStAsIntegerFunction = New RFunction
         clsStIntersectsFunction = New RFunction
         clsExtractColumnStIntersectsFunction = New RFunction
-        'clsIsNAFunction = New RFunction
         clsStCombineFunction = New RFunction
         clsConcFunction = New RFunction
         clsSubsetOperator = New ROperator
         clsDollarOperator = New ROperator
         clsOpeningSubsetOperator = New ROperator
+        clsEqualOpeningSubsetOperator = New ROperator
         clsClosingSubsetOperator = New ROperator
         clsIsEqualToOperator = New ROperator
-        clsCompareColumnsdollarOperator = New ROperator
-        'clsDummyOperator = New ROperator
 
         ucrSelectorShapeFile.Reset()
         ucrSelectorStationFile.Reset()
@@ -155,8 +144,9 @@ Public Class dlgLocatingPointsInShapeFile
         clsStAsIntegerFunction.AddParameter("x", clsRFunctionParameter:=clsExtractColumnStIntersectsFunction, iPosition:=0)
         clsStAsIntegerFunction.SetAssignTo("intersection")
 
-        'clsIsNAFunction.SetRCommand("is.na")
-        'clsIsNAFunction.AddParameter("x", clsRFunctionParameter:=clsStAsIntegerFunction, iPosition:=0)
+        clsEqualOpeningSubsetOperator.SetOperation("[")
+        clsEqualOpeningSubsetOperator.bSpaceAroundOperation = False
+        clsEqualOpeningSubsetOperator.AddParameter("right", clsROperatorParameter:=clsClosingSubsetOperator, iPosition:=1)
 
         clsOpeningSubsetOperator.SetOperation("[")
         clsOpeningSubsetOperator.bSpaceAroundOperation = False
@@ -169,7 +159,7 @@ Public Class dlgLocatingPointsInShapeFile
         clsClosingSubsetOperator.AddParameter("right", "", iPosition:=1)
 
         clsIsEqualToOperator.SetOperation("==")
-        clsIsEqualToOperator.AddParameter("right", clsROperatorParameter:=clsOpeningSubsetOperator, iPosition:=1)
+        clsIsEqualToOperator.AddParameter("right", clsROperatorParameter:=clsEqualOpeningSubsetOperator, iPosition:=1)
         clsIsEqualToOperator.SetAssignTo("polygon_logical")
 
         ucrBase.clsRsyntax.SetBaseROperator(clsSubsetOperator)
@@ -179,19 +169,19 @@ Public Class dlgLocatingPointsInShapeFile
         ucrSelectorShapeFile.AddAdditionalCodeParameterPair(clsExtractColumnStIntersectsFunction, New RParameter("y", iNewPosition:=1), iAdditionalPairNo:=1)
 
         ucrSelectorStationFile.SetRCode(clsStAsSfFunction, bReset)
-        ucrSelectorShapeFile.SetRCode(clsStIntersectsFunction, bReset)
+        ucrSelectorShapeFile.SetRCode(clsExtractColumnStIntersectsFunction, bReset)
         ucrReceiverLatitude.SetRCode(clsConcFunction, bReset)
         ucrReceiverLongitude.SetRCode(clsConcFunction, bReset)
         ucrReceiverGeometry.SetRCode(clsStCombineFunction, bReset)
         ucrReceiverStationFilePolygon.SetRCode(clsIsEqualToOperator, bReset)
         ucrReceiverShapeFilePolygon.SetRCode(clsOpeningSubsetOperator, bReset)
+        ucrReceiverShapeFilePolygon.AddAdditionalCodeParameterPair(clsEqualOpeningSubsetOperator, New RParameter("left", 0), iAdditionalPairNo:=1)
 
         ucrSaveNewColumnName.SetRCode(clsSubsetOperator, bReset)
         ucrSaveNewColumnName.AddAdditionalRCode(clsOpeningSubsetOperator, iAdditionalPairNo:=1)
         ucrSaveNewColumnName.AddAdditionalRCode(clsIsEqualToOperator, iAdditionalPairNo:=2)
 
         ucrChkOmitMissing.SetRCode(clsStAsSfFunction, bReset)
-        ucrReceiverShapeFilePolygon.SetRCode(clsOpeningSubsetOperator, bReset)
     End Sub
 
     Private Sub TestOKEnabled()
@@ -208,19 +198,17 @@ Public Class dlgLocatingPointsInShapeFile
         TestOKEnabled()
     End Sub
 
-    Private Sub CoreControlsContentsChanged_ControlContentsChanged(ucrChangedControl As ucrCore) Handles ucrReceiverLatitude.ControlContentsChanged, ucrReceiverLongitude.ControlContentsChanged, ucrSaveNewColumnName.ControlContentsChanged, ucrReceiverGeometry.ControlContentsChanged
+    Private Sub CoreControlsContentsChanged_ControlContentsChanged(ucrChangedControl As ucrCore) Handles ucrReceiverLatitude.ControlContentsChanged, ucrReceiverLongitude.ControlContentsChanged,
+        ucrSaveNewColumnName.ControlContentsChanged, ucrReceiverGeometry.ControlContentsChanged, ucrReceiverShapeFilePolygon.ControlContentsChanged, ucrReceiverStationFilePolygon.ControlContentsChanged
         TestOKEnabled()
     End Sub
 
     Private Sub ucrReceiverShapeFilePolygon_ControlContentsChanged(ucrChangedControl As ucrCore) Handles ucrReceiverShapeFilePolygon.ControlContentsChanged, ucrReceiverStationFilePolygon.ControlContentsChanged
         If Not ucrReceiverShapeFilePolygon.IsEmpty AndAlso Not ucrReceiverStationFilePolygon.IsEmpty Then
-            ucrSaveNewColumnName.SetPrefix("logical_polygon")
             ucrBase.clsRsyntax.SetBaseROperator(clsIsEqualToOperator)
         ElseIf Not ucrReceiverShapeFilePolygon.IsEmpty AndAlso ucrReceiverStationFilePolygon.IsEmpty Then
-            ucrSaveNewColumnName.SetPrefix("polygon")
             ucrBase.clsRsyntax.SetBaseROperator(clsOpeningSubsetOperator)
         Else
-            ucrSaveNewColumnName.SetPrefix("location")
             ucrBase.clsRsyntax.SetBaseROperator(clsSubsetOperator)
         End If
     End Sub
